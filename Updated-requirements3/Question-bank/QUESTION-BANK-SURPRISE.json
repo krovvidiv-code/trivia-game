@@ -1,0 +1,227 @@
+[
+  {
+    "id": "SUR_001",
+    "difficulty": "medium",
+    "category": "surprise",
+    "question": "In 1947, Grace Hopper's team found the first literal 'bug'. What was it?",
+    "answers": [
+      {"id": "a", "text": "A cockroach trapped in vacuum tubes", "correct": false},
+      {"id": "b", "text": "A moth caught in relay contacts", "correct": true},
+      {"id": "c", "text": "A fly disrupting magnetic tape", "correct": false},
+      {"id": "d", "text": "A beetle inside memory banks", "correct": false}
+    ],
+    "explanation": "It was a moth in the Harvard Mark II computer. They taped it in the logbook.",
+    "timer_seconds": 10,
+    "roast_message": "Looks like you're bugged by the wrong answer! 🐛💭"
+  },
+  {
+    "id": "SUR_002",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "Complete this classic programmer joke: 'There are 10 types of people...'",
+    "answers": [
+      {"id": "a", "text": "Those who understand binary and those who don't", "correct": true},
+      {"id": "b", "text": "Those who prefer hexadecimal notation", "correct": false},
+      {"id": "c", "text": "Quantum computing enthusiasts", "correct": false},
+      {"id": "d", "text": "People who count from one", "correct": false}
+    ],
+    "explanation": "10 in binary equals 2 in decimal - those who understand binary and those who don't!",
+    "timer_seconds": 10,
+    "roast_message": "Your binary understanding is currently 0! 01001111"
+  },
+  {
+    "id": "SUR_003",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "What is the only HTTP status code officially representing a teapot?",
+    "answers": [
+      {"id": "a", "text": "404 Not Found", "correct": false},
+      {"id": "b", "text": "500 Internal Server Error", "correct": false},
+      {"id": "c", "text": "418 I'm a Teapot", "correct": true},
+      {"id": "d", "text": "200 OK", "correct": false}
+    ],
+    "explanation": "HTTP 418 was defined as an April Fools' joke in RFC 2324.",
+    "timer_seconds": 10,
+    "roast_message": "Time for a tea break to think about HTTP codes! ☕🫖"
+  },
+  {
+    "id": "SUR_004",
+    "difficulty": "medium",
+    "category": "surprise",
+    "question": "Who is considered the first computer programmer in history?",
+    "answers": [
+      {"id": "a", "text": "Alan Turing", "correct": false},
+      {"id": "b", "text": "Charles Babbage", "correct": false},
+      {"id": "c", "text": "John von Neumann", "correct": false},
+      {"id": "d", "text": "Ada Lovelace", "correct": true}
+    ],
+    "explanation": "Ada Lovelace wrote the first algorithm for Babbage's Analytical Engine in the 1840s.",
+    "timer_seconds": 10,
+    "roast_message": "Your programming history needs debugging! 👩‍💻📚"
+  },
+  {
+    "id": "SUR_005",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "What does 'daemon' mean in computing terminology?",
+    "answers": [
+      {"id": "a", "text": "Background process handling system tasks", "correct": true},
+      {"id": "b", "text": "Malicious virus or malware program", "correct": false},
+      {"id": "c", "text": "Critical kernel panic error state", "correct": false},
+      {"id": "d", "text": "Root user administrative privileges", "correct": false}
+    ],
+    "explanation": "Named after Maxwell's Demon, a background agent handling tasks automatically.",
+    "timer_seconds": 10,
+    "roast_message": "Your answer summoned the wrong daemon! 👹⚡"
+  },
+  {
+    "id": "SUR_006",
+    "difficulty": "medium",
+    "category": "surprise",
+    "question": "What material was the first computer mouse made from?",
+    "answers": [
+      {"id": "a", "text": "Molded plastic components", "correct": false},
+      {"id": "b", "text": "Wooden block with wheels", "correct": true},
+      {"id": "c", "text": "Machined metal casing", "correct": false},
+      {"id": "d", "text": "Transparent glass surface", "correct": false}
+    ],
+    "explanation": "Douglas Engelbart's 1964 prototype was carved from a wooden block with wheels.",
+    "timer_seconds": 10,
+    "roast_message": "Your click missed the mark! 🖱️🪵"
+  },
+  {
+    "id": "SUR_007",
+    "difficulty": "hard",
+    "category": "surprise",
+    "question": "Which of these is NOT a real programming language?",
+    "answers": [
+      {"id": "a", "text": "Chef (recipe-based syntax)", "correct": false},
+      {"id": "b", "text": "Chicken (using only 'chicken')", "correct": false},
+      {"id": "c", "text": "CoffeeScript (JavaScript compiler)", "correct": false},
+      {"id": "d", "text": "LatteScript (made-up language)", "correct": true}
+    ],
+    "explanation": "Chef and Chicken are real esoteric programming languages. LatteScript is fictional.",
+    "timer_seconds": 10,
+    "roast_message": "Your language detection needs compilation! 🍗☕"
+  },
+  {
+    "id": "SUR_008",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "What is the official mascot of the Linux operating system?",
+    "answers": [
+      {"id": "a", "text": "Tux the Penguin", "correct": true},
+      {"id": "b", "text": "Octocat from GitHub", "correct": false},
+      {"id": "c", "text": "Go Gopher mascot", "correct": false},
+      {"id": "d", "text": "Python snake logo", "correct": false}
+    ],
+    "explanation": "Tux the Penguin has been Linux's mascot since the mid-1990s.",
+    "timer_seconds": 10,
+    "roast_message": "Your answer didn't waddle to the right choice! 🐧❄️"
+  },
+  {
+    "id": "SUR_009",
+    "difficulty": "hard",
+    "category": "surprise",
+    "question": "The first webcam was invented at Cambridge University to monitor what?",
+    "answers": [
+      {"id": "a", "text": "Local weather conditions", "correct": false},
+      {"id": "b", "text": "Campus traffic patterns", "correct": false},
+      {"id": "c", "text": "Coffee pot status", "correct": true},
+      {"id": "d", "text": "Laboratory mice behavior", "correct": false}
+    ],
+    "explanation": "They wanted to check the Trojan Room coffee pot without making unnecessary trips.",
+    "timer_seconds": 10,
+    "roast_message": "Your answer needs more caffeine! ☕📹"
+  },
+  {
+    "id": "SUR_010",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "What does the computing acronym 'GIGO' stand for?",
+    "answers": [
+      {"id": "a", "text": "Get In Get Out", "correct": false},
+      {"id": "b", "text": "Go In Go Out", "correct": false},
+      {"id": "c", "text": "Good Input Good Output", "correct": false},
+      {"id": "d", "text": "Garbage In Garbage Out", "correct": true}
+    ],
+    "explanation": "If you input bad data, you'll get bad results out of any system.",
+    "timer_seconds": 10,
+    "roast_message": "Garbage input detected in your answer! 🗑️💻"
+  },
+  {
+    "id": "surprise_16",
+    "difficulty": "medium",
+    "category": "surprise",
+    "question": "What year was the term 'Artificial Intelligence' first coined?",
+    "answers": [
+      {"id": "a", "text": "1956 at Dartmouth Conference", "correct": true},
+      {"id": "b", "text": "1984 in Orwell's predictions", "correct": false},
+      {"id": "c", "text": "2010 during deep learning boom", "correct": false},
+      {"id": "d", "text": "1776 with American independence", "correct": false}
+    ],
+    "explanation": "The term was coined at the famous Dartmouth Conference in 1956.",
+    "timer_seconds": 10,
+    "roast_message": "Your AI history timeline glitched! 🤖📅"
+  },
+  {
+    "id": "surprise_17",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "What's the key difference between the Internet and the World Wide Web?",
+    "answers": [
+      {"id": "a", "text": "They're identical terms for the same thing", "correct": false},
+      {"id": "b", "text": "Web is faster than Internet connections", "correct": false},
+      {"id": "c", "text": "Internet is infrastructure; Web is content layer", "correct": true},
+      {"id": "d", "text": "Internet only supports email communication", "correct": false}
+    ],
+    "explanation": "Internet is the network infrastructure; WWW is one service running on it.",
+    "timer_seconds": 10,
+    "roast_message": "Your web of understanding has broken links! 🕸️🔗"
+  },
+  {
+    "id": "surprise_18",
+    "difficulty": "medium",
+    "category": "surprise",
+    "question": "Why is JavaScript called JavaScript despite being unrelated to Java?",
+    "answers": [
+      {"id": "a", "text": "Inventor's name was Java Something", "correct": false},
+      {"id": "b", "text": "Marketing strategy to leverage Java's popularity", "correct": true},
+      {"id": "c", "text": "JavaScript is actually a subset of Java", "correct": false},
+      {"id": "d", "text": "JavaScript runs on Java Virtual Machine", "correct": false}
+    ],
+    "explanation": "Originally LiveScript, renamed JavaScript for marketing reasons in 1995.",
+    "timer_seconds": 10,
+    "roast_message": "Your naming convention needs a marketing review! ☕📢"
+  },
+  {
+    "id": "surprise_19",
+    "difficulty": "hard",
+    "category": "surprise",
+    "question": "What does 'rubber duck debugging' refer to in programming?",
+    "answers": [
+      {"id": "a", "text": "Using rubber duck as stress relief tool", "correct": false},
+      {"id": "b", "text": "Explaining code line-by-line to rubber duck", "correct": true},
+      {"id": "c", "text": "Automated unit testing methodology", "correct": false},
+      {"id": "d", "text": "Yellow-colored error message display", "correct": false}
+    ],
+    "explanation": "Explaining code to an inanimate object often reveals logical problems.",
+    "timer_seconds": 10,
+    "roast_message": "Even a rubber duck could debug this better! 🦆🐛"
+  },
+  {
+    "id": "surprise_20",
+    "difficulty": "easy",
+    "category": "surprise",
+    "question": "What is the most loved programming language according to Stack Overflow 2023?",
+    "answers": [
+      {"id": "a", "text": "Python for data science", "correct": false},
+      {"id": "b", "text": "JavaScript for web development", "correct": false},
+      {"id": "c", "text": "Rust for systems programming", "correct": true},
+      {"id": "d", "text": "Go for cloud infrastructure", "correct": false}
+    ],
+    "explanation": "Rust has consistently topped the 'most loved' language charts for several years.",
+    "timer_seconds": 10,
+    "roast_message": "Your language preference is getting rusty! 🦀💖"
+  }
+]

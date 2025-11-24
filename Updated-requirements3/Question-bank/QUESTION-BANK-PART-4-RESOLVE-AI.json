@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "file": "Part 4 - Resolve AI Questions",
+    "version": "2.0",
+    "total_questions": 10,
+    "categories": {
+      "resolve_ai_specific": 10
+    },
+    "last_updated": "2025-11-21",
+    "notes": "These questions are about Resolve AI's positioning and capabilities. Getting ALL of these correct triggers Secret Employee detection."
+  },
+  "questions": [
+    {
+      "id": "RAI001",
+      "difficulty": "medium",
+      "category": "resolve_positioning",
+      "timer_seconds": 12,
+      "question": "What three domains does Resolve AI work across to understand production systems?",
+      "options": [
+        "Frontend, backend, and database",
+        "Code, infrastructure, and telemetry",
+        "Development, staging, and production",
+        "Monitoring, alerting, and logging"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resolve AI works across code, infrastructure, and telemetry - the three domains senior engineers need to master for production work."
+    },
+    {
+      "id": "RAI002",
+      "difficulty": "medium",
+      "category": "resolve_capabilities",
+      "timer_seconds": 12,
+      "question": "How does Resolve AI's approach differ from traditional observability tools?",
+      "options": [
+        "It only shows data visualizations",
+        "It investigates and executes, not just displays data",
+        "It's the same as existing monitoring tools",
+        "It only handles incident response"
+      ],
+      "correct_answer": 1,
+      "explanation": "Unlike traditional observability tools that show data, Resolve AI autonomously investigates and takes action to resolve issues."
+    },
+    {
+      "id": "RAI003",
+      "difficulty": "medium",
+      "category": "resolve_approach",
+      "timer_seconds": 12,
+      "question": "What makes Resolve AI different from coding assistants like Cursor or Copilot?",
+      "options": [
+        "It's focused on gaming applications",
+        "It works with full production context, not just code",
+        "It's exactly the same",
+        "It only works with Python"
+      ],
+      "correct_answer": 1,
+      "explanation": "Coding assistants only see code. Resolve AI understands the complete production context - code, infrastructure, and telemetry."
+    },
+    {
+      "id": "RAI004",
+      "difficulty": "medium",
+      "category": "resolve_value",
+      "timer_seconds": 12,
+      "question": "What expertise does Resolve AI bring to every engineer?",
+      "options": [
+        "Junior-level basic knowledge",
+        "Senior-level cross-domain expertise",
+        "Manager-level delegation skills",
+        "Sales and marketing expertise"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resolve AI distributes senior engineer expertise - the cross-domain knowledge that typically takes years to build."
+    },
+    {
+      "id": "RAI005",
+      "difficulty": "hard",
+      "category": "resolve_use_cases",
+      "timer_seconds": 15,
+      "question": "Which of these is NOT a primary use case for Resolve AI?",
+      "options": [
+        "Autonomously resolving incidents",
+        "Optimizing infrastructure costs",
+        "Building on existing systems",
+        "Replacing all engineering teams"
+      ],
+      "correct_answer": 3,
+      "explanation": "Resolve AI augments engineers with AI capabilities - it doesn't replace them. It handles incidents, optimization, and architecture guidance."
+    },
+    {
+      "id": "RAI006",
+      "difficulty": "hard",
+      "category": "resolve_investigation",
+      "timer_seconds": 15,
+      "question": "How does Resolve AI conduct incident investigations?",
+      "options": [
+        "Single-shot responses without depth",
+        "Orchestrates multiple agents that formulate hypotheses and gather evidence",
+        "Only uses predefined runbooks",
+        "Waits for human instructions at every step"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resolve AI uses multi-agent orchestration for deep investigation - agents formulate hypotheses, gather evidence, and provide recommendations."
+    },
+    {
+      "id": "RAI007",
+      "difficulty": "hard",
+      "category": "resolve_approach",
+      "timer_seconds": 15,
+      "question": "What does Resolve AI do with existing production systems?",
+      "options": [
+        "Requires complete rebuild of infrastructure",
+        "Connects to systems as-is and understands how they interact",
+        "Only works with greenfield projects",
+        "Forces migration to new platforms"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resolve AI works with your existing production systems without requiring changes - it understands your current architecture."
+    },
+    {
+      "id": "RAI008",
+      "difficulty": "expert",
+      "category": "resolve_differentiation",
+      "timer_seconds": 18,
+      "question": "What category is Resolve AI creating in the market?",
+      "options": [
+        "AI SRE tools",
+        "AI for Production Systems",
+        "Generic DevOps automation",
+        "Traditional monitoring platforms"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resolve AI is creating the 'AI for Production Systems' category - beyond just incidents to handle the full production stack."
+    },
+    {
+      "id": "RAI009",
+      "difficulty": "expert",
+      "category": "resolve_execution",
+      "timer_seconds": 18,
+      "question": "What does 'expert execution' mean in Resolve AI's capabilities?",
+      "options": [
+        "It only provides suggestions for humans",
+        "It operates tools like an expert engineer - iteratively refining approaches",
+        "It executes code without any validation",
+        "It waits for approval on every action"
+      ],
+      "correct_answer": 1,
+      "explanation": "Expert execution means Resolve AI operates production tools like an experienced engineer - running queries, validating, and adjusting approach."
+    },
+    {
+      "id": "RAI010",
+      "difficulty": "expert",
+      "category": "resolve_learning",
+      "timer_seconds": 18,
+      "question": "How does Resolve AI build institutional knowledge over time?",
+      "options": [
+        "It doesn't learn from past interactions",
+        "Continuous learning with every interaction builds knowledge",
+        "Only through manual training sessions",
+        "By reading documentation once"
+      ],
+      "correct_answer": 1,
+      "explanation": "Resolve AI continuously learns from every incident, investigation, and interaction - building institutional knowledge that benefits the whole team."
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+[
+  {
+    "id": "RAI_001",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "According to Resolve AI, what is the 'Production Knowledge Gap'?",
+    "answers": [
+      {"id": "a", "text": "Limited understanding of deployment workflows", "correct": false},
+      {"id": "b", "text": "Skill disparity between junior and senior engineers", "correct": false},
+      {"id": "c", "text": "Difficulty comprehending how systems actually operate versus documentation", "correct": true},
+      {"id": "d", "text": "Insufficient monitoring and observability tooling coverage", "correct": false}
+    ],
+    "explanation": "The Production Knowledge Gap refers to the challenge of truly understanding operational system behavior.",
+    "timer_seconds": 15,
+    "roast_message": "Knowledge gap detected! Time to resolve that! 🧠🔍"
+  },
+  {
+    "id": "RAI_002",
+    "difficulty": "medium",
+    "category": "ai_production",
+    "question": "Resolve AI operates across three specific domains. What are they?",
+    "answers": [
+      {"id": "a", "text": "Development, Testing, and Production environments", "correct": false},
+      {"id": "b", "text": "Code, Infrastructure, and Telemetry systems", "correct": true},
+      {"id": "c", "text": "Logs, Metrics, and Distributed tracing", "correct": false},
+      {"id": "d", "text": "Frontend, Backend, and Database layers", "correct": false}
+    ],
+    "explanation": "Resolve connects Code, Infrastructure, and Telemetry to provide comprehensive system understanding.",
+    "timer_seconds": 15,
+    "roast_message": "Lost connection to the right domains! 🌐💫"
+  },
+  {
+    "id": "RAI_003",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "Research cited by Resolve suggests engineers spend what percentage of time on operational 'grunt work'?",
+    "answers": [
+      {"id": "a", "text": "Approximately 70% operational, 30% creative development", "correct": true},
+      {"id": "b", "text": "Roughly 50% operational, 50% creative development", "correct": false},
+      {"id": "c", "text": "Around 30% operational, 70% creative development", "correct": false},
+      {"id": "d", "text": "Nearly 90% operational, 10% creative development", "correct": false}
+    ],
+    "explanation": "Most engineering time (70%) goes to running code rather than writing it.",
+    "timer_seconds": 15,
+    "roast_message": "Time to automate away your wrong answer! 🤖⚡"
+  },
+  {
+    "id": "RAI_004",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "How does Resolve AI's 'Expert Execution' differ from typical coding assistants?",
+    "answers": [
+      {"id": "a", "text": "Provides comprehensive code completion and syntax highlighting", "correct": false},
+      {"id": "b", "text": "Integrates directly with popular development environments", "correct": false},
+      {"id": "c", "text": "Operates tools iteratively, validating and refining approaches", "correct": true},
+      {"id": "d", "text": "Generates boilerplate code templates and frameworks", "correct": false}
+    ],
+    "explanation": "Unlike static suggestions, Resolve executes, validates, and iterates like a senior engineer.",
+    "timer_seconds": 15,
+    "roast_message": "Your execution strategy needs refinement! 🎯🔧"
+  },
+  {
+    "id": "RAI_005",
+    "difficulty": "medium",
+    "category": "ai_production",
+    "question": "What is the primary advantage of Resolve AI for 'Brownfield' development?",
+    "answers": [
+      {"id": "a", "text": "Automatically refactors legacy codebases for modernization", "correct": false},
+      {"id": "b", "text": "Provides architectural recommendations grounded in operational reality", "correct": true},
+      {"id": "c", "text": "Enforces coding standards and automated linting rules", "correct": false},
+      {"id": "d", "text": "Generates comprehensive technical documentation automatically", "correct": false}
+    ],
+    "explanation": "Resolve understands existing systems to make practical architectural suggestions.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer got lost in the brownfield! 🏗️🤔"
+  },
+  {
+    "id": "RAI_006",
+    "difficulty": "medium",
+    "category": "ai_production",
+    "question": "How does Resolve AI handle 'Multi-agent orchestration'?",
+    "answers": [
+      {"id": "a", "text": "Deploys separate agents for each service component", "correct": false},
+      {"id": "b", "text": "Coordinates specialized agents for hypothesis and evidence gathering", "correct": true},
+      {"id": "c", "text": "Routes requests to external human expert consultations", "correct": false},
+      {"id": "d", "text": "Utilizes single large language model prompts", "correct": false}
+    ],
+    "explanation": "Multiple specialized agents work together to solve complex production problems.",
+    "timer_seconds": 15,
+    "roast_message": "Need better agent coordination! 🎼🤖"
+  },
+  {
+    "id": "RAI_007",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "Why does Resolve AI claim 'AI SRE' alone isn't sufficient?",
+    "answers": [
+      {"id": "a", "text": "Current AI models lack sufficient reasoning capabilities", "correct": false},
+      {"id": "b", "text": "True automation requires comprehensive stack understanding", "correct": true},
+      {"id": "c", "text": "Site Reliability Engineering practices are becoming outdated", "correct": false},
+      {"id": "d", "text": "SRE specialists are too expensive for most organizations", "correct": false}
+    ],
+    "explanation": "Effective automation needs understanding of code, infrastructure, and telemetry together.",
+    "timer_seconds": 15,
+    "roast_message": "Your understanding of the stack needs work! 🥞💭"
+  },
+  {
+    "id": "RAI_008",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "What is Resolve AI's approach to 'Continuous Learning'?",
+    "answers": [
+      {"id": "a", "text": "Captures institutional knowledge and feedback for improvement", "correct": true},
+      {"id": "b", "text": "Performs automated nightly model retraining cycles", "correct": false},
+      {"id": "c", "text": "Aggregates solutions from public developer communities", "correct": false},
+      {"id": "d", "text": "Requires manual entry of troubleshooting procedures", "correct": false}
+    ],
+    "explanation": "Resolve builds institutional memory by learning from every investigation.",
+    "timer_seconds": 15,
+    "roast_message": "Time to capture some knowledge about correct answers! 📚🎯"
+  },
+  {
+    "id": "RAI_009",
+    "difficulty": "medium",
+    "category": "ai_production",
+    "question": "Which is NOT a primary use case for Resolve AI?",
+    "answers": [
+      {"id": "a", "text": "Autonomous incident response and resolution", "correct": false},
+      {"id": "b", "text": "Infrastructure cost optimization recommendations", "correct": false},
+      {"id": "c", "text": "Marketing content generation and campaigns", "correct": true},
+      {"id": "d", "text": "Development guidance and code recommendations", "correct": false}
+    ],
+    "explanation": "Resolve focuses specifically on engineering operations, not marketing.",
+    "timer_seconds": 15,
+    "roast_message": "Your marketing for wrong answers is impressive! 📢🎯"
+  },
+  {
+    "id": "RAI_010",
+    "difficulty": "expert",
+    "category": "ai_production",
+    "question": "Resolve AI was built by researchers from which organizations?",
+    "answers": [
+      {"id": "a", "text": "Google DeepMind and OpenTelemetry creator teams", "correct": true},
+      {"id": "b", "text": "Microsoft Research and OpenAI development groups", "correct": false},
+      {"id": "c", "text": "Meta AI Research and Apache Kafka teams", "correct": false},
+      {"id": "d", "text": "Amazon Web Services and Docker founding engineers", "correct": false}
+    ],
+    "explanation": "The team includes experts from Google DeepMind and creators of OpenTelemetry.",
+    "timer_seconds": 15,
+    "roast_message": "Wrong founding story! Need better telemetry on facts! 📡🤓"
+  },
+  {
+    "id": "RAI_011",
+    "difficulty": "expert",
+    "category": "ai_production",
+    "question": "Which companies are publicly cited as Resolve AI customers?",
+    "answers": [
+      {"id": "a", "text": "Netflix, Spotify, and Hulu streaming services", "correct": false},
+      {"id": "b", "text": "Uber, Lyft, and Airbnb platform companies", "correct": false},
+      {"id": "c", "text": "Coinbase, DoorDash, and Salesforce enterprises", "correct": true},
+      {"id": "d", "text": "Target, Walmart, and Costco retail chains", "correct": false}
+    ],
+    "explanation": "Public customers include Coinbase, DoorDash, Salesforce, Zscaler, and MSCI.",
+    "timer_seconds": 15,
+    "roast_message": "Wrong customer list! Your sales pitch needs work! 💼📈"
+  },
+  {
+    "id": "RAI_012",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "How much does Resolve AI typically reduce Mean Time To Resolution (MTTR)?",
+    "answers": [
+      {"id": "a", "text": "Approximately 10-20% improvement in resolution times", "correct": false},
+      {"id": "b", "text": "Around 30-40% faster incident resolution", "correct": false},
+      {"id": "c", "text": "Roughly 50-60% reduction in MTTR", "correct": false},
+      {"id": "d", "text": "Up to 80% faster resolution times", "correct": true}
+    ],
+    "explanation": "Organizations typically experience up to 80% reduction in Mean Time to Resolution.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer resolution time needs improvement! ⏱️🚀"
+  },
+  {
+    "id": "RAI_013",
+    "difficulty": "medium",
+    "category": "ai_production",
+    "question": "Unlike traditional observability dashboards, Resolve AI primarily does what?",
+    "answers": [
+      {"id": "a", "text": "Provides more colorful and intuitive data visualizations", "correct": false},
+      {"id": "b", "text": "Investigates issues and executes remediation actions", "correct": true},
+      {"id": "c", "text": "Generates automated PDF reports and documentation", "correct": false},
+      {"id": "d", "text": "Offers real-time alerting and notification systems", "correct": false}
+    ],
+    "explanation": "While dashboards show data, Resolve actively investigates and takes action.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer needs more action and less observation! 🔍⚡"
+  },
+  {
+    "id": "RAI_014",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "Does Resolve AI require extensive data migration for implementation?",
+    "answers": [
+      {"id": "a", "text": "Yes, requires complete migration of all telemetry data", "correct": false},
+      {"id": "b", "text": "No, connects to existing tools and systems as-is", "correct": true},
+      {"id": "c", "text": "Partial migration needed for logs and metrics only", "correct": false},
+      {"id": "d", "text": "Migration required for infrastructure monitoring data", "correct": false}
+    ],
+    "explanation": "Resolve integrates with existing production systems without requiring data migration.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer migrated to the wrong choice! 🚛💨"
+  },
+  {
+    "id": "RAI_015",
+    "difficulty": "hard",
+    "category": "ai_production",
+    "question": "What three core challenges does Resolve AI address simultaneously?",
+    "answers": [
+      {"id": "a", "text": "Slow incidents, spiraling costs, and reduced development velocity", "correct": true},
+      {"id": "b", "text": "Frontend performance, mobile optimization, and desktop compatibility", "correct": false},
+      {"id": "c", "text": "Hiring difficulties, payroll management, and HR operations", "correct": false},
+      {"id": "d", "text": "Sales growth, marketing reach, and customer support quality", "correct": false}
+    ],
+    "explanation": "Resolve targets incident response, cost optimization, and development velocity.",
+    "timer_seconds": 15,
+    "roast_message": "Three strikes and you're out! ⚾🎯"
+  }
+]

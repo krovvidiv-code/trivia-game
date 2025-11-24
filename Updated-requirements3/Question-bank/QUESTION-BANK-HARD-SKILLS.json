@@ -1,0 +1,227 @@
+[
+  {
+    "id": "HS_001",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "In the CAP theorem, what happens to a distributed database during a network partition if it prioritizes Availability (AP)?",
+    "answers": [
+      {"id": "a", "text": "Continues accepting writes but may serve stale data to clients", "correct": true},
+      {"id": "b", "text": "Rejects all write operations to prevent data corruption", "correct": false},
+      {"id": "c", "text": "Automatically scales down non-essential service components", "correct": false},
+      {"id": "d", "text": "Enforces strict synchronous replication across nodes", "correct": false}
+    ],
+    "explanation": "AP systems maintain availability during partitions, accepting eventual consistency trade-offs.",
+    "timer_seconds": 15,
+    "roast_message": "Even distributed systems have commitment issues! 💔"
+  },
+  {
+    "id": "HS_002",
+    "difficulty": "expert",
+    "category": "technical",
+    "question": "What is the 'Split-Brain' scenario in a high-availability cluster?",
+    "answers": [
+      {"id": "a", "text": "Multiple nodes simultaneously claim primary master status", "correct": true},
+      {"id": "b", "text": "Neural network model splits computational weights", "correct": false},
+      {"id": "c", "text": "Load balancer fails to distribute traffic correctly", "correct": false},
+      {"id": "d", "text": "AI model generates contradictory response outputs", "correct": false}
+    ],
+    "explanation": "Split-brain occurs when network communication fails, leading to multiple masters.",
+    "timer_seconds": 15,
+    "roast_message": "Looks like your brain split too! Try clustering your thoughts. 🧠⚡"
+  },
+  {
+    "id": "HS_003",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "Which consensus algorithm is designed to be more understandable than Paxos and uses a 'Leader' approach?",
+    "answers": [
+      {"id": "a", "text": "Gossip Protocol for peer-to-peer communication", "correct": false},
+      {"id": "b", "text": "Two-Phase Commit for distributed transactions", "correct": false},
+      {"id": "c", "text": "Raft algorithm for replicated state machines", "correct": true},
+      {"id": "d", "text": "BitTorrent protocol for content distribution", "correct": false}
+    ],
+    "explanation": "Raft was specifically designed to be easier to understand than Paxos.",
+    "timer_seconds": 15,
+    "roast_message": "Need to elect a new leader for your answer choices! 🗳️"
+  },
+  {
+    "id": "HS_004",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "What is the 'Thundering Herd' problem in distributed systems?",
+    "answers": [
+      {"id": "a", "text": "Excessive concurrent processes awakening for single events", "correct": true},
+      {"id": "b", "text": "Distributed denial-of-service attack using IoT devices", "correct": false},
+      {"id": "c", "text": "Audio driver failure causing system crashes", "correct": false},
+      {"id": "d", "text": "Too many engineers collaborating in chat channels", "correct": false}
+    ],
+    "explanation": "Common when cache expires and thousands of requests hit the database simultaneously.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer stampeded in the wrong direction! 🐘🏃"
+  },
+  {
+    "id": "HS_005",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "Your Kubernetes pod is stuck in `CrashLoopBackOff`. Which is the LEAST likely root cause?",
+    "answers": [
+      {"id": "a", "text": "Application process exits immediately upon startup", "correct": false},
+      {"id": "b", "text": "Liveness probe consistently fails health checks", "correct": false},
+      {"id": "c", "text": "Database connection cannot be established by application", "correct": false},
+      {"id": "d", "text": "Node lacks disk space to pull container images", "correct": true}
+    ],
+    "explanation": "Disk space issues cause `ImagePullBackOff`, not `CrashLoopBackOff` errors.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer is stuck in a BackOff too! 🔄💥"
+  },
+  {
+    "id": "HS_006",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "In Kubernetes, what distinguishes Liveness probes from Readiness probes?",
+    "answers": [
+      {"id": "a", "text": "Liveness restarts pods; Readiness removes traffic endpoints", "correct": true},
+      {"id": "b", "text": "Readiness restarts pods; Liveness scales replicas up", "correct": false},
+      {"id": "c", "text": "Liveness handles HTTP; Readiness handles TCP connections", "correct": false},
+      {"id": "d", "text": "Both probes function identically with different names", "correct": false}
+    ],
+    "explanation": "Liveness checks if alive (restart if not); Readiness checks if ready (stop traffic if not).",
+    "timer_seconds": 15,
+    "roast_message": "Your readiness probe failed! Need more K8s training. ⚕️"
+  },
+  {
+    "id": "HS_007",
+    "difficulty": "expert",
+    "category": "technical",
+    "question": "What happens when you set CPU Limit but no Request in Kubernetes?",
+    "answers": [
+      {"id": "a", "text": "Kubernetes rejects the manifest as invalid configuration", "correct": false},
+      {"id": "b", "text": "Pod receives unlimited CPU without resource constraints", "correct": false},
+      {"id": "c", "text": "Pod automatically defaults Request value to match Limit", "correct": true},
+      {"id": "d", "text": "Pod runs with lowest scheduling priority", "correct": false}
+    ],
+    "explanation": "Kubernetes defaults the Request to match the Limit when only Limit is specified.",
+    "timer_seconds": 15,
+    "roast_message": "Your resource requests need better limits! 💾⚠️"
+  },
+  {
+    "id": "HS_008",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "Why is high cardinality problematic for time-series databases?",
+    "answers": [
+      {"id": "a", "text": "Exponentially increases index size, degrading performance", "correct": true},
+      {"id": "b", "text": "Significantly increases log storage space requirements", "correct": false},
+      {"id": "c", "text": "Forces aggressive sampling to manage data volume", "correct": false},
+      {"id": "d", "text": "Prevents usage of JSON data formats", "correct": false}
+    ],
+    "explanation": "High cardinality (many unique tags) creates massive indexes, crushing performance.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer has high cardinality with correctness! 📊💥"
+  },
+  {
+    "id": "HS_009",
+    "difficulty": "hard",
+    "category": "technical",
+    "question": "What is the primary downside of 'Head-Based Sampling' in distributed tracing?",
+    "answers": [
+      {"id": "a", "text": "Requires computationally expensive processing resources", "correct": false},
+      {"id": "b", "text": "Sampling decisions precede error occurrence knowledge", "correct": true},
+      {"id": "c", "text": "Demands 100% disk storage for all traces", "correct": false},
+      {"id": "d", "text": "Incompatible with OpenTelemetry standard protocols", "correct": false}
+    ],
+    "explanation": "Head-based sampling decides early, potentially discarding traces containing critical errors.",
+    "timer_seconds": 15,
+    "roast_message": "You sampled the wrong answer! 📈🎯"
+  },
+  {
+    "id": "HS_010",
+    "difficulty": "medium",
+    "category": "technical",
+    "question": "What are the traditional 'Three Pillars' of Observability?",
+    "answers": [
+      {"id": "a", "text": "Logs, Metrics, and Distributed Traces", "correct": true},
+      {"id": "b", "text": "Code, Infrastructure, and Telemetry", "correct": false},
+      {"id": "c", "text": "Latency, Traffic, and Error rates", "correct": false},
+      {"id": "d", "text": "Time, Space, and Computational Complexity", "correct": false}
+    ],
+    "explanation": "The classical observability framework consists of Logs, Metrics, and Traces.",
+    "timer_seconds": 15,
+    "roast_message": "Your observability could use some work! 👀📊"
+  },
+  {
+    "id": "easy_16",
+    "difficulty": "easy",
+    "category": "ai_agents",
+    "question": "What distinguishes an AI agent from a simple LLM chat interface?",
+    "answers": [
+      {"id": "a", "text": "Agents utilize superior grammar and language models", "correct": false},
+      {"id": "b", "text": "Agents autonomously execute tools and take actions", "correct": true},
+      {"id": "c", "text": "Agents require quantum computing infrastructure", "correct": false},
+      {"id": "d", "text": "Agents always cost more than chat interfaces", "correct": false}
+    ],
+    "explanation": "Agents can autonomously use tools and take actions beyond text generation.",
+    "timer_seconds": 15,
+    "roast_message": "Your answer needs more agency! 🤖💪"
+  },
+  {
+    "id": "easy_17",
+    "difficulty": "easy",
+    "category": "ai_agents",
+    "question": "In multi-agent systems, what does 'orchestration' refer to?",
+    "answers": [
+      {"id": "a", "text": "Training multiple models simultaneously across clusters", "correct": false},
+      {"id": "b", "text": "Coordinating specialized agents to solve complex tasks", "correct": true},
+      {"id": "c", "text": "Playing background music for AI systems", "correct": false},
+      {"id": "d", "text": "Making agents perform synchronized movements", "correct": false}
+    ],
+    "explanation": "Orchestration coordinates multiple specialized agents working together on problems.",
+    "timer_seconds": 15,
+    "roast_message": "Time to conduct a better answer! 🎼🎺"
+  },
+  {
+    "id": "easy_18",
+    "difficulty": "easy",
+    "category": "production_systems",
+    "question": "What is 'toil' in Site Reliability Engineering terminology?",
+    "answers": [
+      {"id": "a", "text": "Manual, repetitive work lacking lasting value", "correct": true},
+      {"id": "b", "text": "Physically demanding labor in server rooms", "correct": false},
+      {"id": "c", "text": "Challenging debugging sessions requiring expertise", "correct": false},
+      {"id": "d", "text": "Writing comprehensive technical documentation", "correct": false}
+    ],
+    "explanation": "Toil is manual, repetitive work that could be automated.",
+    "timer_seconds": 15,
+    "roast_message": "Looks like this question was toil for you! 🛠️😅"
+  },
+  {
+    "id": "easy_19",
+    "difficulty": "easy",
+    "category": "production_systems",
+    "question": "What causes the majority of production incidents?",
+    "answers": [
+      {"id": "a", "text": "Hardware failures and component malfunctions", "correct": false},
+      {"id": "b", "text": "Security breaches and malicious attacks", "correct": false},
+      {"id": "c", "text": "Changes to deployments, configs, or infrastructure", "correct": true},
+      {"id": "d", "text": "Cosmic ray interference with memory", "correct": false}
+    ],
+    "explanation": "Most incidents result from system changes rather than hardware failures.",
+    "timer_seconds": 15,
+    "roast_message": "Change is hard, including changing wrong answers! 🔄💥"
+  },
+  {
+    "id": "easy_20",
+    "difficulty": "easy",
+    "category": "technical",
+    "question": "What is a 'trace' in distributed systems monitoring?",
+    "answers": [
+      {"id": "a", "text": "Record of request journey across multiple services", "correct": true},
+      {"id": "b", "text": "Stack trace generated from application errors", "correct": false},
+      {"id": "c", "text": "Detective investigation of system bugs", "correct": false},
+      {"id": "d", "text": "Following footprints left by software bugs", "correct": false}
+    ],
+    "explanation": "A trace tracks a single request as it flows through distributed services.",
+    "timer_seconds": 15,
+    "roast_message": "Lost the trace of the right answer! 🕵️‍♀️📍"
+  }
+]

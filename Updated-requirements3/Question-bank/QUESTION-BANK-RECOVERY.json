@@ -1,0 +1,152 @@
+[
+  {
+    "id": "REC_001",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "What does 'SRE' stand for?",
+    "answers": [
+      {"id": "a", "text": "System Reliability Engineering", "correct": false},
+      {"id": "b", "text": "Software Runtime Environment", "correct": false},
+      {"id": "c", "text": "Site Reliability Engineering", "correct": true},
+      {"id": "d", "text": "Service Resilience Engineering", "correct": false}
+    ],
+    "explanation": "Site Reliability Engineering focuses on maintaining production systems.",
+    "timer_seconds": 15,
+    "roast_message": "Oof. That answer 404'd. Let's try something from localhost."
+  },
+  {
+    "id": "REC_002",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "Which command creates a new directory in Linux?",
+    "answers": [
+      {"id": "a", "text": "mkdir", "correct": true},
+      {"id": "b", "text": "rmdir", "correct": false},
+      {"id": "c", "text": "newdir", "correct": false},
+      {"id": "d", "text": "makedir", "correct": false}
+    ],
+    "explanation": "mkdir (make directory) creates new directories.",
+    "timer_seconds": 15,
+    "roast_message": "Swing and a miss! Even GPT-4 hallucinates sometimes."
+  },
+  {
+    "id": "REC_003",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "What is 'the cloud' in computing?",
+    "answers": [
+      {"id": "a", "text": "Distributed computing infrastructure", "correct": false},
+      {"id": "b", "text": "Remote servers accessed via internet", "correct": true},
+      {"id": "c", "text": "Virtual machine orchestration", "correct": false},
+      {"id": "d", "text": "Network-attached storage systems", "correct": false}
+    ],
+    "explanation": "Cloud computing means using remote servers via the internet instead of local hardware.",
+    "timer_seconds": 15,
+    "roast_message": "That caused a NullPointer in our hearts. Reset!"
+  },
+  {
+    "id": "REC_004",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "What IP address refers to 'localhost'?",
+    "answers": [
+      {"id": "a", "text": "192.168.1.1", "correct": false},
+      {"id": "b", "text": "10.0.0.1", "correct": false},
+      {"id": "c", "text": "172.16.0.1", "correct": false},
+      {"id": "d", "text": "127.0.0.1", "correct": true}
+    ],
+    "explanation": "127.0.0.1 is the loopback address referring to the local machine.",
+    "timer_seconds": 15,
+    "roast_message": "Segfault! Core dumped. Try this."
+  },
+  {
+    "id": "REC_005",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "Which technology styles web page appearance?",
+    "answers": [
+      {"id": "a", "text": "CSS (Cascading Style Sheets)", "correct": true},
+      {"id": "b", "text": "HTML (Hypertext Markup Language)", "correct": false},
+      {"id": "c", "text": "XML (Extensible Markup Language)", "correct": false},
+      {"id": "d", "text": "DOM (Document Object Model)", "correct": false}
+    ],
+    "explanation": "CSS controls the visual presentation and styling of web pages.",
+    "timer_seconds": 15,
+    "roast_message": "You broke production! (Kidding). Lifeline:"
+  },
+  {
+    "id": "REC_006",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "What does 'CPU' stand for?",
+    "answers": [
+      {"id": "a", "text": "Computer Processing Unit", "correct": false},
+      {"id": "b", "text": "Central Processing Unit", "correct": true},
+      {"id": "c", "text": "Core Programming Unit", "correct": false},
+      {"id": "d", "text": "Centralized Processing Unit", "correct": false}
+    ],
+    "explanation": "CPU stands for Central Processing Unit, the main computational component.",
+    "timer_seconds": 15,
+    "roast_message": "Your context window is full. Clearing cache..."
+  },
+  {
+    "id": "REC_007",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "What type of software is Python?",
+    "answers": [
+      {"id": "a", "text": "Database management system", "correct": false},
+      {"id": "b", "text": "Web server application", "correct": false},
+      {"id": "c", "text": "Programming language", "correct": true},
+      {"id": "d", "text": "Operating system kernel", "correct": false}
+    ],
+    "explanation": "Python is a high-level, interpreted programming language.",
+    "timer_seconds": 15,
+    "roast_message": "That was a race condition. You lost. Try again."
+  },
+  {
+    "id": "REC_008",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "What software allows web browsing?",
+    "answers": [
+      {"id": "a", "text": "Text editor application", "correct": false},
+      {"id": "b", "text": "Web browser application", "correct": true},
+      {"id": "c", "text": "Code compiler utility", "correct": false},
+      {"id": "d", "text": "Database query tool", "correct": false}
+    ],
+    "explanation": "Web browsers like Chrome, Firefox, or Safari render and display web pages.",
+    "timer_seconds": 15,
+    "roast_message": "Syntax Error on line 1. Let's debug."
+  },
+  {
+    "id": "REC_009",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "Which protocol indicates secure web connections?",
+    "answers": [
+      {"id": "a", "text": "HTTPS (HTTP Secure)", "correct": true},
+      {"id": "b", "text": "SMTP (Simple Mail Transfer)", "correct": false},
+      {"id": "c", "text": "FTP (File Transfer Protocol)", "correct": false},
+      {"id": "d", "text": "SSH (Secure Shell)", "correct": false}
+    ],
+    "explanation": "HTTPS encrypts data between browser and server for security.",
+    "timer_seconds": 15,
+    "roast_message": "Layer 8 issue detected (User Error)."
+  },
+  {
+    "id": "REC_010",
+    "difficulty": "easy",
+    "category": "recovery",
+    "question": "Which is an open-source operating system?",
+    "answers": [
+      {"id": "a", "text": "Linux", "correct": true},
+      {"id": "b", "text": "macOS", "correct": false},
+      {"id": "c", "text": "Windows", "correct": false},
+      {"id": "d", "text": "iOS", "correct": false}
+    ],
+    "explanation": "Linux is a free, open-source operating system kernel and ecosystem.",
+    "timer_seconds": 15,
+    "roast_message": "Packet loss! Retrying request..."
+  }
+]

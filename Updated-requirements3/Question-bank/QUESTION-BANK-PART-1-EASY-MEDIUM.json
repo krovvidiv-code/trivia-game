@@ -1,0 +1,689 @@
+{
+  "metadata": {
+    "file": "Part 1 - Easy & Medium Questions",
+    "version": "2.0",
+    "total_questions": 45,
+    "categories": {
+      "easy": 20,
+      "medium": 25
+    },
+    "last_updated": "2025-11-21"
+  },
+  "questions": [
+    {
+      "id": "E001",
+      "difficulty": "easy",
+      "category": "production_systems",
+      "timer_seconds": 15,
+      "question": "What percentage of engineer time is typically spent working with production systems according to industry research?",
+      "options": [
+        "50% of their time",
+        "60% of their time",
+        "70% of their time",
+        "80% of their time"
+      ],
+      "correct_answer": 2,
+      "explanation": "Engineers typically spend 70% of their time working with production systems - incidents, optimization, customer issues, and maintenance."
+    },
+    {
+      "id": "E002",
+      "difficulty": "easy",
+      "category": "observability",
+      "timer_seconds": 15,
+      "question": "Which metric represents the time between when an incident is detected and when it's fully resolved?",
+      "options": [
+        "MTTD (Mean Time To Detect)",
+        "MTBF (Mean Time Between Failures)",
+        "MTTR (Mean Time To Resolve)",
+        "MTTA (Mean Time To Acknowledge)"
+      ],
+      "correct_answer": 2,
+      "explanation": "MTTR (Mean Time To Resolve) measures the entire lifecycle from detection to resolution of an incident."
+    },
+    {
+      "id": "E003",
+      "difficulty": "easy",
+      "category": "ai_concepts",
+      "timer_seconds": 15,
+      "question": "What does an AI agent do when investigating production issues?",
+      "options": [
+        "Only generates reports for humans to read",
+        "Formulates hypotheses, gathers evidence, and provides recommendations",
+        "Replaces all human engineers completely",
+        "Only monitors logs without taking action"
+      ],
+      "correct_answer": 1,
+      "explanation": "AI agents autonomously investigate by forming hypotheses across domains, collecting evidence, and providing actionable recommendations."
+    },
+    {
+      "id": "E004",
+      "difficulty": "easy",
+      "category": "incidents",
+      "timer_seconds": 15,
+      "question": "During a production incident, what's the first critical step?",
+      "options": [
+        "Writing a detailed postmortem report",
+        "Identifying and restoring service",
+        "Scheduling a team meeting",
+        "Updating documentation"
+      ],
+      "correct_answer": 1,
+      "explanation": "The priority during incidents is always to restore service first, then investigate root cause and prevent recurrence."
+    },
+    {
+      "id": "E005",
+      "difficulty": "easy",
+      "category": "production_systems",
+      "timer_seconds": 15,
+      "question": "What are the three main domains that production systems span?",
+      "options": [
+        "Frontend, backend, and database",
+        "Development, staging, and production",
+        "Code, infrastructure, and telemetry",
+        "People, process, and technology"
+      ],
+      "correct_answer": 2,
+      "explanation": "Modern production systems require understanding across code, infrastructure, and telemetry to effectively operate and troubleshoot."
+    },
+    {
+      "id": "E006",
+      "difficulty": "easy",
+      "category": "devops",
+      "timer_seconds": 15,
+      "question": "What is 'toil' in the context of engineering work?",
+      "options": [
+        "Complex algorithmic challenges",
+        "Manual, repetitive work that doesn't scale",
+        "Writing new features for customers",
+        "Learning new programming languages"
+      ],
+      "correct_answer": 1,
+      "explanation": "Toil refers to manual, repetitive, automatable work that grows with service size and doesn't provide lasting value."
+    },
+    {
+      "id": "E007",
+      "difficulty": "easy",
+      "category": "monitoring",
+      "timer_seconds": 15,
+      "question": "What type of data helps you understand the internal state of a running system?",
+      "options": [
+        "Marketing analytics",
+        "Source code comments",
+        "Observability data (logs, metrics, traces)",
+        "User feedback surveys"
+      ],
+      "correct_answer": 2,
+      "explanation": "Observability data - logs, metrics, and traces - provides visibility into the internal behavior and health of production systems."
+    },
+    {
+      "id": "E008",
+      "difficulty": "easy",
+      "category": "cloud",
+      "timer_seconds": 15,
+      "question": "What's a common challenge when optimizing cloud infrastructure costs?",
+      "options": [
+        "Cloud services are always optimally priced by default",
+        "Identifying unused resources and rightsizing based on actual usage",
+        "Cloud costs never increase over time",
+        "All resources are equally important to keep"
+      ],
+      "correct_answer": 1,
+      "explanation": "Cost optimization requires continuously identifying waste, unused resources, and opportunities to rightsize based on actual usage patterns."
+    },
+    {
+      "id": "E009",
+      "difficulty": "easy",
+      "category": "ai_concepts",
+      "timer_seconds": 15,
+      "question": "What advantage does multi-agent orchestration provide over single AI responses?",
+      "options": [
+        "It's faster because multiple agents work simultaneously",
+        "Deep investigation with specialized agents gathering evidence across domains",
+        "It uses less computational resources",
+        "It requires no training or configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Multi-agent systems enable deep investigation where specialized agents work together to gather evidence and form comprehensive solutions."
+    },
+    {
+      "id": "E010",
+      "difficulty": "easy",
+      "category": "production_systems",
+      "timer_seconds": 15,
+      "question": "Why is cross-domain expertise valuable in production systems?",
+      "options": [
+        "It makes engineers work longer hours",
+        "Issues span code, infrastructure, and telemetry - requiring connection across all three",
+        "It's only useful for senior executives",
+        "It eliminates the need for documentation"
+      ],
+      "correct_answer": 1,
+      "explanation": "Production issues rarely exist in isolation - they require understanding how code, infrastructure, and telemetry interact."
+    },
+    {
+      "id": "E011",
+      "difficulty": "easy",
+      "category": "sre",
+      "timer_seconds": 15,
+      "question": "What does SRE stand for in software engineering?",
+      "options": [
+        "Software Reliability Engineering",
+        "Site Reliability Engineering",
+        "System Recovery Engineering",
+        "Service Resolution Engineering"
+      ],
+      "correct_answer": 1,
+      "explanation": "SRE (Site Reliability Engineering) is a discipline that applies software engineering approaches to infrastructure and operations."
+    },
+    {
+      "id": "E012",
+      "difficulty": "easy",
+      "category": "incidents",
+      "timer_seconds": 15,
+      "question": "What is a 'root cause' in incident management?",
+      "options": [
+        "The first person who reported the issue",
+        "The underlying reason that caused the incident",
+        "The symptom that users experienced",
+        "The time when the incident started"
+      ],
+      "correct_answer": 1,
+      "explanation": "Root cause is the fundamental reason an incident occurred - fixing it prevents the same issue from recurring."
+    },
+    {
+      "id": "E013",
+      "difficulty": "easy",
+      "category": "development",
+      "timer_seconds": 15,
+      "question": "What's the benefit of having AI understand your existing production architecture?",
+      "options": [
+        "It requires rebuilding everything from scratch",
+        "Provides recommendations that work with your current systems",
+        "It makes all legacy systems obsolete",
+        "It only works with brand new applications"
+      ],
+      "correct_answer": 1,
+      "explanation": "AI that understands existing architecture can provide practical recommendations that integrate with current systems rather than requiring rewrites."
+    },
+    {
+      "id": "E014",
+      "difficulty": "easy",
+      "category": "monitoring",
+      "timer_seconds": 15,
+      "question": "Which of these is NOT one of the three pillars of observability?",
+      "options": [
+        "Logs",
+        "Metrics",
+        "Screenshots",
+        "Traces"
+      ],
+      "correct_answer": 2,
+      "explanation": "The three pillars of observability are logs, metrics, and traces - screenshots are not a standard observability signal."
+    },
+    {
+      "id": "E015",
+      "difficulty": "easy",
+      "category": "ai_concepts",
+      "timer_seconds": 15,
+      "question": "What does it mean for AI to 'execute' in production systems?",
+      "options": [
+        "It only suggests what humans should do",
+        "It operates tools, runs queries, and takes action autonomously",
+        "It deletes all production data",
+        "It only writes documentation"
+      ],
+      "correct_answer": 1,
+      "explanation": "Expert execution means AI can operate tools like an engineer - running queries, validating results, and adjusting approaches."
+    },
+    {
+      "id": "E016",
+      "difficulty": "easy",
+      "category": "production_systems",
+      "timer_seconds": 15,
+      "question": "Why do production systems constantly change?",
+      "options": [
+        "Because engineers like to break things",
+        "New code deploys, infrastructure updates, and tooling evolves across teams",
+        "They don't change - production is always stable",
+        "Only during major migrations"
+      ],
+      "correct_answer": 1,
+      "explanation": "Production systems are dynamic - continuous deployments, infrastructure changes, and tooling updates happen across many teams."
+    },
+    {
+      "id": "E017",
+      "difficulty": "easy",
+      "category": "devops",
+      "timer_seconds": 15,
+      "question": "What's the goal of continuous integration and deployment (CI/CD)?",
+      "options": [
+        "To prevent any code changes from happening",
+        "To automate building, testing, and deploying code frequently",
+        "To make deployments happen only once per year",
+        "To eliminate the need for testing"
+      ],
+      "correct_answer": 1,
+      "explanation": "CI/CD automates the software delivery process, enabling teams to release changes frequently and reliably."
+    },
+    {
+      "id": "E018",
+      "difficulty": "easy",
+      "category": "cost_optimization",
+      "timer_seconds": 15,
+      "question": "What's a common source of wasted cloud spending?",
+      "options": [
+        "Using cloud services at all",
+        "Resources running 24/7 that are only needed during business hours",
+        "Having any redundancy for reliability",
+        "Using managed services"
+      ],
+      "correct_answer": 1,
+      "explanation": "Many organizations waste money on always-on resources that could be scheduled or rightsized based on actual usage patterns."
+    },
+    {
+      "id": "E019",
+      "difficulty": "easy",
+      "category": "incidents",
+      "timer_seconds": 15,
+      "question": "What should happen after resolving a major production incident?",
+      "options": [
+        "Immediately forget about it and move on",
+        "Conduct a blameless postmortem to learn and prevent recurrence",
+        "Fire whoever was on-call",
+        "Delete all logs to save space"
+      ],
+      "correct_answer": 1,
+      "explanation": "Blameless postmortems help teams learn from incidents and implement systemic improvements without assigning blame."
+    },
+    {
+      "id": "E020",
+      "difficulty": "easy",
+      "category": "production_systems",
+      "timer_seconds": 15,
+      "question": "What makes senior engineers particularly valuable during incidents?",
+      "options": [
+        "They work longer hours than junior engineers",
+        "Cross-domain expertise connecting code, infrastructure, and telemetry",
+        "They have access to secret documentation",
+        "They never make mistakes"
+      ],
+      "correct_answer": 1,
+      "explanation": "Senior engineers excel at connecting dots across domains - understanding how code, infrastructure, and observability data interact."
+    },
+    {
+      "id": "M001",
+      "difficulty": "medium",
+      "category": "observability",
+      "timer_seconds": 12,
+      "question": "What's the primary difference between monitoring and observability?",
+      "options": [
+        "Monitoring tracks known problems; observability helps understand unknown issues",
+        "They are exactly the same thing with different names",
+        "Observability is cheaper than monitoring",
+        "Monitoring is only for cloud systems"
+      ],
+      "correct_answer": 0,
+      "explanation": "Monitoring tracks predefined metrics for known issues. Observability provides insights to investigate and understand unknown problems."
+    },
+    {
+      "id": "M002",
+      "difficulty": "medium",
+      "category": "distributed_systems",
+      "timer_seconds": 12,
+      "question": "In a microservices architecture, what makes root cause analysis challenging?",
+      "options": [
+        "Issues cascade across multiple services with complex dependencies",
+        "There are too few services to track",
+        "All services are perfectly isolated",
+        "Microservices never have incidents"
+      ],
+      "correct_answer": 0,
+      "explanation": "Microservices create complex dependency chains where issues in one service can cascade and manifest differently across many services."
+    },
+    {
+      "id": "M003",
+      "difficulty": "medium",
+      "category": "ai_agents",
+      "timer_seconds": 12,
+      "question": "How does an AI agent differ from traditional automation scripts?",
+      "options": [
+        "Agents adapt and learn; scripts follow fixed rules",
+        "Scripts are always faster than agents",
+        "Agents only work offline",
+        "Scripts can handle any unexpected scenario"
+      ],
+      "correct_answer": 0,
+      "explanation": "AI agents can adapt to new situations and learn from context, while traditional scripts execute predetermined steps."
+    },
+    {
+      "id": "M004",
+      "difficulty": "medium",
+      "category": "incidents",
+      "timer_seconds": 12,
+      "question": "What does 'context switching' cost engineering teams during incidents?",
+      "options": [
+        "Extra licensing fees for monitoring tools",
+        "Time and cognitive load moving between tools and gathering context",
+        "Physical server switching hardware",
+        "Network bandwidth"
+      ],
+      "correct_answer": 1,
+      "explanation": "Engineers lose significant time and mental capacity switching between tools, correlating data, and building mental models during investigations."
+    },
+    {
+      "id": "M005",
+      "difficulty": "medium",
+      "category": "telemetry",
+      "timer_seconds": 12,
+      "question": "What challenge do distributed traces help solve?",
+      "options": [
+        "Reducing cloud costs",
+        "Understanding request flow across multiple services",
+        "Writing better code comments",
+        "Managing user authentication"
+      ],
+      "correct_answer": 1,
+      "explanation": "Distributed traces track requests across service boundaries, making it possible to understand latency and failures in complex systems."
+    },
+    {
+      "id": "M006",
+      "difficulty": "medium",
+      "category": "production_systems",
+      "timer_seconds": 12,
+      "question": "Why is institutional knowledge important in production systems?",
+      "options": [
+        "It helps new engineers avoid repeating past mistakes and investigations",
+        "It's only useful for legal compliance",
+        "It increases the time to resolve incidents",
+        "It makes documentation unnecessary"
+      ],
+      "correct_answer": 0,
+      "explanation": "Institutional knowledge captures learnings from past incidents, patterns, and solutions that accelerate future troubleshooting."
+    },
+    {
+      "id": "M007",
+      "difficulty": "medium",
+      "category": "cost_optimization",
+      "timer_seconds": 12,
+      "question": "What's the challenge with optimizing observability tool costs?",
+      "options": [
+        "Balancing data retention needs against exponentially growing ingestion costs",
+        "Observability tools are always free",
+        "More data always leads to better outcomes",
+        "There's no cost associated with telemetry"
+      ],
+      "correct_answer": 0,
+      "explanation": "Observability costs scale with data volume - teams must balance comprehensive visibility against budget constraints."
+    },
+    {
+      "id": "M008",
+      "difficulty": "medium",
+      "category": "kubernetes",
+      "timer_seconds": 12,
+      "question": "What makes troubleshooting Kubernetes issues complex?",
+      "options": [
+        "Kubernetes never has any issues",
+        "It only requires knowing one technology",
+        "Multiple abstraction layers (pods, nodes, services, ingress) interact dynamically",
+        "All issues are clearly documented"
+      ],
+      "correct_answer": 2,
+      "explanation": "Kubernetes complexity comes from multiple abstraction layers that interact - pods, deployments, services, networking, and storage."
+    },
+    {
+      "id": "M009",
+      "difficulty": "medium",
+      "category": "development",
+      "timer_seconds": 12,
+      "question": "What's the risk of adding new features to a complex production system?",
+      "options": [
+        "Features always work perfectly on first try",
+        "Unintended interactions with existing code, infrastructure, or data flow",
+        "New features reduce system complexity",
+        "There's no risk if you're careful"
+      ],
+      "correct_answer": 1,
+      "explanation": "In complex systems, new features can interact unexpectedly with existing components, causing cascading issues."
+    },
+    {
+      "id": "M010",
+      "difficulty": "medium",
+      "category": "on_call",
+      "timer_seconds": 12,
+      "question": "What's the primary goal of reducing on-call burden?",
+      "options": [
+        "Eliminating on-call rotations completely",
+        "Reducing alert noise and automating responses to known issues",
+        "Making incidents happen only during business hours",
+        "Ensuring alerts never fire"
+      ],
+      "correct_answer": 1,
+      "explanation": "The goal is meaningful on-call with fewer false alarms and automated handling of routine issues, not elimination of on-call."
+    },
+    {
+      "id": "M011",
+      "difficulty": "medium",
+      "category": "ai_agents",
+      "timer_seconds": 12,
+      "question": "What makes hypothesis formation important in automated incident response?",
+      "options": [
+        "Hypotheses are only for academic research",
+        "It enables systematic investigation of potential causes rather than random checking",
+        "Hypotheses slow down incident response",
+        "Only humans can form useful hypotheses"
+      ],
+      "correct_answer": 1,
+      "explanation": "Hypothesis-driven investigation focuses effort on likely causes and ensures systematic coverage of possibilities."
+    },
+    {
+      "id": "M012",
+      "difficulty": "medium",
+      "category": "architecture",
+      "timer_seconds": 12,
+      "question": "When building on existing production systems, what's the key challenge?",
+      "options": [
+        "Old systems should always be completely replaced",
+        "Understanding current architecture constraints and integration points",
+        "New features never affect old systems",
+        "Documentation is always up-to-date and complete"
+      ],
+      "correct_answer": 1,
+      "explanation": "Extending existing systems requires deep understanding of current architecture, constraints, and how new components will integrate."
+    },
+    {
+      "id": "M013",
+      "difficulty": "medium",
+      "category": "deployment",
+      "timer_seconds": 12,
+      "question": "What's a canary deployment strategy?",
+      "options": [
+        "Deploying to all servers at once for speed",
+        "Rolling out changes to a small subset first to detect issues early",
+        "Never deploying on Fridays",
+        "Requiring manager approval for every deploy"
+      ],
+      "correct_answer": 1,
+      "explanation": "Canary deployments release changes to a small percentage of traffic first, enabling quick rollback if issues are detected."
+    },
+    {
+      "id": "M014",
+      "difficulty": "medium",
+      "category": "data",
+      "timer_seconds": 12,
+      "question": "What's the '80/20' problem in production data analysis?",
+      "options": [
+        "80% of your data is useless",
+        "Engineers spend 80% of time finding and preparing data, 20% analyzing it",
+        "20% of engineers do 80% of the work",
+        "80% of incidents happen on 20% of services"
+      ],
+      "correct_answer": 1,
+      "explanation": "Most analysis time is spent on data discovery, extraction, and preparation rather than actual insight generation."
+    },
+    {
+      "id": "M015",
+      "difficulty": "medium",
+      "category": "security",
+      "timer_seconds": 12,
+      "question": "Why is production access control complex?",
+      "options": [
+        "Engineers need broad access for incidents but minimal access for security",
+        "Everyone should have full production access always",
+        "Security doesn't matter in production",
+        "Access control is simple and straightforward"
+      ],
+      "correct_answer": 0,
+      "explanation": "Organizations must balance rapid incident response (needs broad access) with security best practices (minimal access)."
+    },
+    {
+      "id": "M016",
+      "difficulty": "medium",
+      "category": "alerts",
+      "timer_seconds": 12,
+      "question": "What's 'alert fatigue' and why is it harmful?",
+      "options": [
+        "Feeling tired after exercising",
+        "Engineers ignore alerts due to excessive false positives and noise",
+        "Alerts that trigger too slowly",
+        "Having too few alerts"
+      ],
+      "correct_answer": 1,
+      "explanation": "Alert fatigue occurs when excessive false alarms cause engineers to ignore or dismiss notifications, missing real issues."
+    },
+    {
+      "id": "M017",
+      "difficulty": "medium",
+      "category": "databases",
+      "timer_seconds": 12,
+      "question": "What makes database performance issues particularly challenging?",
+      "options": [
+        "Databases never have performance issues",
+        "Symptoms appear in applications but root cause is in query patterns or data modeling",
+        "Database issues are always obvious",
+        "Performance problems fix themselves"
+      ],
+      "correct_answer": 1,
+      "explanation": "Database performance issues manifest downstream in applications, requiring correlation between app behavior and database internals."
+    },
+    {
+      "id": "M018",
+      "difficulty": "medium",
+      "category": "cloud",
+      "timer_seconds": 12,
+      "question": "What's 'cloud sprawl' and why does it matter?",
+      "options": [
+        "When cloud data centers expand physically",
+        "Uncontrolled proliferation of resources across accounts and regions",
+        "The natural growth of business",
+        "A type of cloud storage"
+      ],
+      "correct_answer": 1,
+      "explanation": "Cloud sprawl is uncontrolled resource creation that leads to waste, security gaps, and management complexity."
+    },
+    {
+      "id": "M019",
+      "difficulty": "medium",
+      "category": "change_management",
+      "timer_seconds": 12,
+      "question": "Why do organizations implement change freezes before major events?",
+      "options": [
+        "Changes always cause outages",
+        "To reduce risk of incidents during critical business periods",
+        "Engineers need vacations",
+        "Change freezes eliminate all risk"
+      ],
+      "correct_answer": 1,
+      "explanation": "Change freezes minimize disruption risk during critical periods (holidays, sales events) by limiting production modifications."
+    },
+    {
+      "id": "M020",
+      "difficulty": "medium",
+      "category": "testing",
+      "timer_seconds": 12,
+      "question": "What's the limitation of pre-production testing for production issues?",
+      "options": [
+        "Testing is completely unnecessary",
+        "Production has scale, data, and traffic patterns impossible to replicate",
+        "Test environments are always identical to production",
+        "All bugs can be found in staging"
+      ],
+      "correct_answer": 1,
+      "explanation": "Production scale, real user behavior, and data characteristics often reveal issues that don't appear in test environments."
+    },
+    {
+      "id": "M021",
+      "difficulty": "medium",
+      "category": "documentation",
+      "timer_seconds": 12,
+      "question": "Why does production documentation often become outdated?",
+      "options": [
+        "Engineers intentionally sabotage documentation",
+        "Systems evolve faster than documentation updates",
+        "Documentation tools are too expensive",
+        "No one knows how to write documentation"
+      ],
+      "correct_answer": 1,
+      "explanation": "Production systems change continuously through deployments and updates, while documentation updates lag behind operational changes."
+    },
+    {
+      "id": "M022",
+      "difficulty": "medium",
+      "category": "capacity_planning",
+      "timer_seconds": 12,
+      "question": "What makes capacity planning challenging in modern systems?",
+      "options": [
+        "Capacity planning is always perfectly accurate",
+        "Unpredictable traffic patterns and complex resource interdependencies",
+        "Infrastructure never has capacity constraints",
+        "Planning is only done once per decade"
+      ],
+      "correct_answer": 1,
+      "explanation": "Modern systems face variable traffic, complex dependencies, and dynamic resource needs that make capacity forecasting difficult."
+    },
+    {
+      "id": "M023",
+      "difficulty": "medium",
+      "category": "reliability",
+      "timer_seconds": 12,
+      "question": "What's an SLO (Service Level Objective)?",
+      "options": [
+        "A target reliability metric the service commits to",
+        "A legal contract with customers",
+        "The maximum speed code can execute",
+        "A database query optimization"
+      ],
+      "correct_answer": 0,
+      "explanation": "SLOs define target reliability levels (like 99.9% uptime) that services aim to maintain for users."
+    },
+    {
+      "id": "M024",
+      "difficulty": "medium",
+      "category": "networking",
+      "timer_seconds": 12,
+      "question": "What's a common cause of 'intermittent' production issues?",
+      "options": [
+        "Intermittent issues don't actually exist",
+        "Load-dependent behavior or race conditions under specific conditions",
+        "Engineers imagining problems",
+        "Intermittent issues are always DNS"
+      ],
+      "correct_answer": 1,
+      "explanation": "Intermittent issues often result from load-dependent behavior, race conditions, or edge cases that occur under specific conditions."
+    },
+    {
+      "id": "M025",
+      "difficulty": "medium",
+      "category": "production_systems",
+      "timer_seconds": 12,
+      "question": "What does 'production parity' mean in development?",
+      "options": [
+        "Dev and production should have identical configurations and dependencies",
+        "Production and development are completely different",
+        "Only senior engineers access production",
+        "Development environments don't matter"
+      ],
+      "correct_answer": 0,
+      "explanation": "Production parity means keeping development, staging, and production environments as similar as possible to catch issues early."
+    }
+  ]
+}

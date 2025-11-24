@@ -1,0 +1,689 @@
+{
+  "metadata": {
+    "file": "Part 2 - Hard & Expert Questions",
+    "version": "2.0",
+    "total_questions": 45,
+    "categories": {
+      "hard": 25,
+      "expert": 20
+    },
+    "last_updated": "2025-11-21"
+  },
+  "questions": [
+    {
+      "id": "H001",
+      "difficulty": "hard",
+      "category": "distributed_tracing",
+      "timer_seconds": 18,
+      "question": "In a distributed trace with high latency, what's the most effective strategy to identify the bottleneck?",
+      "options": [
+        "Check every service sequentially from first to last",
+        "Identify the span with the longest duration and examine its critical path",
+        "Restart all services and hope it improves",
+        "Focus only on the database queries"
+      ],
+      "correct_answer": 1,
+      "explanation": "Critical path analysis in traces reveals the span contributing most to total latency, focusing investigation where it matters most."
+    },
+    {
+      "id": "H002",
+      "difficulty": "hard",
+      "category": "ai_orchestration",
+      "timer_seconds": 18,
+      "question": "What's the key advantage of having multiple specialized agents versus one general-purpose agent?",
+      "options": [
+        "More agents always means faster responses",
+        "Specialized agents have domain expertise for deeper investigation in their area",
+        "Multiple agents are cheaper to run",
+        "General agents are always superior"
+      ],
+      "correct_answer": 1,
+      "explanation": "Specialized agents bring domain-specific expertise (networking, databases, code) enabling deeper analysis than generalized approaches."
+    },
+    {
+      "id": "H003",
+      "difficulty": "hard",
+      "category": "incident_response",
+      "timer_seconds": 18,
+      "question": "During a cascading failure, what's the most critical immediate action?",
+      "options": [
+        "Investigate the root cause thoroughly before any action",
+        "Implement circuit breakers to stop cascade propagation",
+        "Write a postmortem document",
+        "Deploy new code to fix the issue"
+      ],
+      "correct_answer": 1,
+      "explanation": "Circuit breakers prevent cascades from spreading further while you stabilize the system and investigate root causes."
+    },
+    {
+      "id": "H004",
+      "difficulty": "hard",
+      "category": "observability",
+      "timer_seconds": 18,
+      "question": "What's 'cardinality explosion' in observability and why is it problematic?",
+      "options": [
+        "When servers physically explode from too much monitoring",
+        "Exponential growth in unique metric combinations causing query and storage issues",
+        "A beneficial scaling of metrics",
+        "A type of database optimization"
+      ],
+      "correct_answer": 1,
+      "explanation": "Cardinality explosion occurs when high-dimensional metrics create millions of unique combinations, overwhelming systems and budgets."
+    },
+    {
+      "id": "H005",
+      "difficulty": "hard",
+      "category": "architecture",
+      "timer_seconds": 18,
+      "question": "When extending a legacy monolith with new microservices, what's the primary integration challenge?",
+      "options": [
+        "Microservices are always incompatible with monoliths",
+        "Managing data consistency and transaction boundaries across systems",
+        "Microservices require different programming languages",
+        "There are no challenges in integration"
+      ],
+      "correct_answer": 1,
+      "explanation": "The hardest challenge is maintaining data consistency when transactions span monolith and microservices boundaries."
+    },
+    {
+      "id": "H006",
+      "difficulty": "hard",
+      "category": "kubernetes",
+      "timer_seconds": 18,
+      "question": "A pod keeps restarting with OOMKilled status. What's the most systematic troubleshooting approach?",
+      "options": [
+        "Immediately increase memory limits to maximum",
+        "Analyze actual memory usage patterns, check for leaks, then rightsize limits",
+        "Delete the pod and hope it works next time",
+        "Memory issues are impossible to debug"
+      ],
+      "correct_answer": 1,
+      "explanation": "Systematic investigation involves understanding actual usage patterns and root cause before adjusting resource limits."
+    },
+    {
+      "id": "H007",
+      "difficulty": "hard",
+      "category": "cost_optimization",
+      "timer_seconds": 18,
+      "question": "What's the risk of aggressive cloud cost optimization?",
+      "options": [
+        "Cloud providers will ban your account",
+        "Reducing critical redundancy or buffer capacity needed for reliability",
+        "Cost optimization is always risk-free",
+        "Costs will actually increase"
+      ],
+      "correct_answer": 1,
+      "explanation": "Over-optimization can eliminate necessary redundancy and buffer capacity, trading cost savings for increased outage risk."
+    },
+    {
+      "id": "H008",
+      "difficulty": "hard",
+      "category": "ai_execution",
+      "timer_seconds": 18,
+      "question": "What does 'iterative refinement' mean in AI agent query execution?",
+      "options": [
+        "Running the same query repeatedly hoping for different results",
+        "Adjusting queries based on results to progressively narrow investigation",
+        "Never changing the initial query approach",
+        "Randomly trying different queries"
+      ],
+      "correct_answer": 1,
+      "explanation": "Iterative refinement means agents adjust their approach based on findings, progressively focusing investigation like an expert would."
+    },
+    {
+      "id": "H009",
+      "difficulty": "hard",
+      "category": "databases",
+      "timer_seconds": 18,
+      "question": "A query runs fast in staging but times out in production. What's the most likely cause?",
+      "options": [
+        "Production servers are always slower",
+        "Data volume differences cause different query execution plans",
+        "Staging and production are identical so this is impossible",
+        "Query optimizer always chooses the same plan"
+      ],
+      "correct_answer": 1,
+      "explanation": "Production data volume and distribution often trigger different execution plans than staging, causing unexpected performance issues."
+    },
+    {
+      "id": "H010",
+      "difficulty": "hard",
+      "category": "deployment",
+      "timer_seconds": 18,
+      "question": "What's a 'feature flag' deployment pattern and why is it powerful?",
+      "options": [
+        "A way to mark code for deletion",
+        "Deploy code to production but control activation independently of deployment",
+        "Flags that indicate deployment completion",
+        "A type of server configuration"
+      ],
+      "correct_answer": 1,
+      "explanation": "Feature flags decouple deployment from activation, enabling progressive rollout and instant rollback without redeploying."
+    },
+    {
+      "id": "H011",
+      "difficulty": "hard",
+      "category": "telemetry",
+      "timer_seconds": 18,
+      "question": "Why might high trace sampling rates be problematic in production?",
+      "options": [
+        "Tracing has no overhead so high rates are always fine",
+        "Performance overhead and cost at scale outweigh marginal visibility gains",
+        "Low sampling is always sufficient",
+        "Sampling rates don't affect anything"
+      ],
+      "correct_answer": 1,
+      "explanation": "At scale, aggressive sampling creates performance overhead and explosive costs while providing diminishing marginal value."
+    },
+    {
+      "id": "H012",
+      "difficulty": "hard",
+      "category": "resilience",
+      "timer_seconds": 18,
+      "question": "What's the difference between 'fail fast' and 'graceful degradation' strategies?",
+      "options": [
+        "They are the same strategy with different names",
+        "Fail fast rejects quickly; degradation maintains partial functionality",
+        "Fail fast is always better than degradation",
+        "Neither strategy actually works"
+      ],
+      "correct_answer": 1,
+      "explanation": "Fail fast quickly rejects impossible requests; graceful degradation maintains core functionality when dependencies fail."
+    },
+    {
+      "id": "H013",
+      "difficulty": "hard",
+      "category": "security",
+      "timer_seconds": 18,
+      "question": "What's 'just-in-time access' for production systems?",
+      "options": [
+        "Access that's granted permanently to all engineers",
+        "Temporary elevated privileges granted only when needed for incidents",
+        "Access that arrives late when you need it",
+        "A type of database query"
+      ],
+      "correct_answer": 1,
+      "explanation": "JIT access provides temporary elevated permissions only when needed, balancing security with operational requirements."
+    },
+    {
+      "id": "H014",
+      "difficulty": "hard",
+      "category": "networking",
+      "timer_seconds": 18,
+      "question": "In a microservices mesh, what causes 'retry storms'?",
+      "options": [
+        "Too many engineers retrying manually",
+        "Cascading retries across services amplifying load on failing dependencies",
+        "Weather patterns affecting data centers",
+        "Retry storms are beneficial for reliability"
+      ],
+      "correct_answer": 1,
+      "explanation": "When services automatically retry failed calls, retries cascade through the mesh, exponentially amplifying load on failing services."
+    },
+    {
+      "id": "H015",
+      "difficulty": "hard",
+      "category": "data_analysis",
+      "timer_seconds": 18,
+      "question": "What's 'context switching overhead' in production investigations?",
+      "options": [
+        "The CPU cost of switching between processes",
+        "Mental load and time switching between tools to correlate information",
+        "Network overhead between data centers",
+        "A type of database lock"
+      ],
+      "correct_answer": 1,
+      "explanation": "Engineers lose significant cognitive capacity and time switching between monitoring tools, logs, and dashboards to build understanding."
+    },
+    {
+      "id": "H016",
+      "difficulty": "hard",
+      "category": "capacity",
+      "timer_seconds": 18,
+      "question": "What's a 'capacity cliff' and why is it dangerous?",
+      "options": [
+        "A literal cliff where data centers are built",
+        "When system performance degrades non-linearly near capacity limits",
+        "Capacity always scales linearly",
+        "A type of storage optimization"
+      ],
+      "correct_answer": 1,
+      "explanation": "Systems often degrade non-linearly near capacity limits - performance drops sharply rather than gradually as load increases."
+    },
+    {
+      "id": "H017",
+      "difficulty": "hard",
+      "category": "ai_learning",
+      "timer_seconds": 18,
+      "question": "How does continuous learning in AI systems improve incident response over time?",
+      "options": [
+        "AI doesn't actually learn from incidents",
+        "Patterns from past incidents inform faster hypothesis generation for similar issues",
+        "Learning makes systems slower",
+        "Each incident is completely unique so learning doesn't help"
+      ],
+      "correct_answer": 1,
+      "explanation": "AI systems build knowledge from past incidents, recognizing patterns that accelerate future investigations and solutions."
+    },
+    {
+      "id": "H018",
+      "difficulty": "hard",
+      "category": "alerts",
+      "timer_seconds": 18,
+      "question": "What's the purpose of alert 'flap detection'?",
+      "options": [
+        "To detect when birds enter the data center",
+        "Prevent notification storms when metrics rapidly oscillate around thresholds",
+        "Flapping is beneficial for alert quality",
+        "A type of network monitoring"
+      ],
+      "correct_answer": 1,
+      "explanation": "Flap detection prevents alert storms when metrics bounce around thresholds, reducing noise while maintaining visibility."
+    },
+    {
+      "id": "H019",
+      "difficulty": "hard",
+      "category": "infrastructure",
+      "timer_seconds": 18,
+      "question": "What's 'infrastructure drift' and why does it matter?",
+      "options": [
+        "When servers physically move locations",
+        "Configuration divergence between infrastructure and code definitions",
+        "Drift is intentional and beneficial",
+        "A type of network latency"
+      ],
+      "correct_answer": 1,
+      "explanation": "Drift occurs when actual infrastructure configurations diverge from declared state, causing unexpected behavior and failures."
+    },
+    {
+      "id": "H020",
+      "difficulty": "hard",
+      "category": "testing",
+      "timer_seconds": 18,
+      "question": "What's 'chaos engineering' in production systems?",
+      "options": [
+        "Randomly breaking things with no purpose",
+        "Proactively injecting failures to test resilience and discover weaknesses",
+        "A methodology that never works",
+        "Only testing in staging environments"
+      ],
+      "correct_answer": 1,
+      "explanation": "Chaos engineering deliberately introduces failures in controlled ways to test system resilience and uncover hidden weaknesses."
+    },
+    {
+      "id": "H021",
+      "difficulty": "hard",
+      "category": "observability_architecture",
+      "timer_seconds": 18,
+      "question": "Why is 'tail-based sampling' more effective than head-based for traces?",
+      "options": [
+        "Tail sampling is always cheaper",
+        "Sampling decisions made after trace completion can keep interesting traces",
+        "Head-based sampling is always superior",
+        "Sampling strategy doesn't affect results"
+      ],
+      "correct_answer": 1,
+      "explanation": "Tail-based sampling makes decisions after seeing complete traces, preserving interesting patterns head-based sampling would miss."
+    },
+    {
+      "id": "H022",
+      "difficulty": "hard",
+      "category": "service_mesh",
+      "timer_seconds": 18,
+      "question": "What problem does a service mesh solve that traditional networking doesn't?",
+      "options": [
+        "Service meshes eliminate the need for networks",
+        "Consistent traffic management, security, and observability without code changes",
+        "Service meshes are slower than traditional networking",
+        "There are no differences between them"
+      ],
+      "correct_answer": 1,
+      "explanation": "Service meshes provide cross-cutting concerns (security, observability, traffic control) at the infrastructure layer without application changes."
+    },
+    {
+      "id": "H023",
+      "difficulty": "hard",
+      "category": "data_consistency",
+      "timer_seconds": 18,
+      "question": "What's the CAP theorem tradeoff in distributed databases?",
+      "options": [
+        "You can have Consistency, Availability, and Partition tolerance simultaneously",
+        "Choose two: Consistency, Availability, or Partition tolerance",
+        "CAP theorem only applies to file systems",
+        "Modern systems have solved CAP completely"
+      ],
+      "correct_answer": 1,
+      "explanation": "CAP theorem states distributed systems can only guarantee two of three properties: Consistency, Availability, Partition tolerance."
+    },
+    {
+      "id": "H024",
+      "difficulty": "hard",
+      "category": "query_optimization",
+      "timer_seconds": 18,
+      "question": "When would an AI agent need to reformulate a database query?",
+      "options": [
+        "Never - the first query is always perfect",
+        "When initial results are incomplete or reveal better query strategies",
+        "Reformulation makes queries slower",
+        "Only humans can reformulate queries"
+      ],
+      "correct_answer": 1,
+      "explanation": "Expert agents iteratively refine queries based on results, similar to how experienced engineers progressively focus investigations."
+    },
+    {
+      "id": "H025",
+      "difficulty": "hard",
+      "category": "production_complexity",
+      "timer_seconds": 18,
+      "question": "What makes production systems 'emergent' in behavior?",
+      "options": [
+        "Production systems never show emergent behavior",
+        "Complex interactions between components create behaviors not predictable from parts",
+        "Emergent behavior only occurs in quantum systems",
+        "Simple systems are always more emergent"
+      ],
+      "correct_answer": 1,
+      "explanation": "Production systems exhibit emergent properties where component interactions create system-level behaviors unpredictable from individual parts."
+    },
+    {
+      "id": "X001",
+      "difficulty": "expert",
+      "category": "distributed_systems_theory",
+      "timer_seconds": 20,
+      "question": "In distributed consensus, what's the FLP impossibility result?",
+      "options": [
+        "Consensus is always impossible in distributed systems",
+        "No deterministic protocol can guarantee consensus with one faulty process in async networks",
+        "Consensus is trivially easy to achieve",
+        "FLP only applies to synchronous networks"
+      ],
+      "correct_answer": 1,
+      "explanation": "FLP impossibility proves deterministic consensus is impossible in asynchronous systems with even one faulty process, fundamental to distributed systems."
+    },
+    {
+      "id": "X002",
+      "difficulty": "expert",
+      "category": "ai_agent_architecture",
+      "timer_seconds": 20,
+      "question": "What architectural property allows agents to coordinate effectively during investigations?",
+      "options": [
+        "Agents work in complete isolation",
+        "Shared context and event-driven communication enabling hypothesis cross-validation",
+        "Agents never need to communicate",
+        "Random coordination is sufficient"
+      ],
+      "correct_answer": 1,
+      "explanation": "Effective multi-agent systems share context and use event-driven patterns to coordinate findings and validate hypotheses across domains."
+    },
+    {
+      "id": "X003",
+      "difficulty": "expert",
+      "category": "observability_sampling",
+      "timer_seconds": 20,
+      "question": "Why is context-aware adaptive sampling superior to fixed-rate sampling?",
+      "options": [
+        "Fixed sampling always provides optimal coverage",
+        "Dynamic adjustment based on service health and traffic patterns captures critical events",
+        "Adaptive sampling is always more expensive",
+        "Sampling rate never matters"
+      ],
+      "correct_answer": 1,
+      "explanation": "Adaptive sampling increases rates during issues and decreases during normal operation, optimizing cost-to-insight ratio."
+    },
+    {
+      "id": "X004",
+      "difficulty": "expert",
+      "category": "query_planning",
+      "timer_seconds": 20,
+      "question": "What makes cost-based query optimizers sometimes choose suboptimal plans?",
+      "options": [
+        "Optimizers always choose perfect plans",
+        "Stale statistics, parameter sensitivity, or data skew mislead cost models",
+        "Query optimization is deterministic",
+        "Database size doesn't affect plans"
+      ],
+      "correct_answer": 1,
+      "explanation": "Optimizers rely on statistics and cost models that can be wrong due to stale data, skew, or parameter sniffing issues."
+    },
+    {
+      "id": "X005",
+      "difficulty": "expert",
+      "category": "incident_patterns",
+      "timer_seconds": 20,
+      "question": "What's a 'thundering herd' problem in distributed systems?",
+      "options": [
+        "When too many servers are deployed",
+        "Simultaneous cache misses cause concurrent requests to overwhelm backend services",
+        "A beneficial pattern for load balancing",
+        "Thundering herds only affect front-end systems"
+      ],
+      "correct_answer": 1,
+      "explanation": "Thundering herd occurs when many clients simultaneously request newly expired cache data, overwhelming backend systems."
+    },
+    {
+      "id": "X006",
+      "difficulty": "expert",
+      "category": "ai_reasoning",
+      "timer_seconds": 20,
+      "question": "How do causal reasoning capabilities improve incident root cause analysis?",
+      "options": [
+        "Causation and correlation are the same thing",
+        "Distinguishing causal relationships from correlations identifies true root causes",
+        "Root cause analysis doesn't need causal reasoning",
+        "Correlation always implies causation"
+      ],
+      "correct_answer": 1,
+      "explanation": "Causal reasoning helps identify actual cause-effect relationships rather than spurious correlations, finding true root causes."
+    },
+    {
+      "id": "X007",
+      "difficulty": "expert",
+      "category": "system_design",
+      "timer_seconds": 20,
+      "question": "What's the subtle risk of microservices 'distributed monoliths'?",
+      "options": [
+        "Distributed monoliths are always beneficial",
+        "Tight coupling between services creates monolith complexity with distributed system overhead",
+        "Microservices eliminate all coupling",
+        "Deployment boundaries don't matter"
+      ],
+      "correct_answer": 1,
+      "explanation": "Distributed monoliths have microservices architecture but tight coupling, combining worst aspects of monoliths and distributed systems."
+    },
+    {
+      "id": "X008",
+      "difficulty": "expert",
+      "category": "knowledge_graphs",
+      "timer_seconds": 20,
+      "question": "How do knowledge graphs enhance AI understanding of production topology?",
+      "options": [
+        "Graphs are purely decorative",
+        "Encoding relationships between services, infrastructure, and data enables contextual reasoning",
+        "Topology information is unnecessary",
+        "Lists are always superior to graphs"
+      ],
+      "correct_answer": 1,
+      "explanation": "Knowledge graphs explicitly model relationships, enabling AI to reason about dependencies, blast radius, and cascading effects."
+    },
+    {
+      "id": "X009",
+      "difficulty": "expert",
+      "category": "rate_limiting",
+      "timer_seconds": 20,
+      "question": "What's the difference between token bucket and leaky bucket rate limiting?",
+      "options": [
+        "They are identical algorithms",
+        "Token bucket allows bursts; leaky bucket enforces constant rate",
+        "Rate limiting algorithms don't matter",
+        "Leaky bucket is always faster"
+      ],
+      "correct_answer": 1,
+      "explanation": "Token bucket permits bursts up to bucket size; leaky bucket enforces strictly constant rate, each suited for different scenarios."
+    },
+    {
+      "id": "X010",
+      "difficulty": "expert",
+      "category": "state_management",
+      "timer_seconds": 20,
+      "question": "Why is state management particularly challenging in multi-agent systems?",
+      "options": [
+        "State management is trivial in distributed agents",
+        "Concurrent state mutations and consistency across autonomous agents requires coordination",
+        "Agents never need shared state",
+        "State is always automatically consistent"
+      ],
+      "correct_answer": 1,
+      "explanation": "Multiple autonomous agents must coordinate state updates while maintaining consistency, avoiding conflicts and data races."
+    },
+    {
+      "id": "X011",
+      "difficulty": "expert",
+      "category": "reliability_engineering",
+      "timer_seconds": 20,
+      "question": "What's the purpose of 'error budgets' in SRE practice?",
+      "options": [
+        "To punish teams that have incidents",
+        "Balance innovation velocity against reliability by quantifying acceptable risk",
+        "Error budgets eliminate all failures",
+        "Budgets are only financial"
+      ],
+      "correct_answer": 1,
+      "explanation": "Error budgets quantify acceptable unreliability, enabling teams to balance feature velocity with stability in a principled way."
+    },
+    {
+      "id": "X012",
+      "difficulty": "expert",
+      "category": "memory_management",
+      "timer_seconds": 20,
+      "question": "What's a 'memory leak' in a long-running service and why is it insidious?",
+      "options": [
+        "Memory leaks cause immediate crashes",
+        "Gradual unreleased memory accumulation eventually exhausts resources",
+        "Memory leaks are beneficial for performance",
+        "Garbage collection prevents all leaks"
+      ],
+      "correct_answer": 1,
+      "explanation": "Memory leaks slowly accumulate unreleased memory, causing gradual degradation that's hard to detect until services crash."
+    },
+    {
+      "id": "X013",
+      "difficulty": "expert",
+      "category": "distributed_tracing_theory",
+      "timer_seconds": 20,
+      "question": "Why are trace context propagation headers critical in microservices?",
+      "options": [
+        "Headers are optional decorations",
+        "Context propagation links spans across service boundaries for end-to-end traces",
+        "Each service traces independently without correlation",
+        "Tracing doesn't need context"
+      ],
+      "correct_answer": 1,
+      "explanation": "Propagated trace context (trace ID, span ID) links distributed operations into coherent end-to-end request traces."
+    },
+    {
+      "id": "X014",
+      "difficulty": "expert",
+      "category": "infrastructure_as_code",
+      "timer_seconds": 20,
+      "question": "What's the 'blast radius' consideration in infrastructure automation?",
+      "options": [
+        "Blast radius only applies to physical explosions",
+        "Scope of impact if automated changes fail or apply incorrectly",
+        "Automation has no failure modes",
+        "Blast radius doesn't matter in cloud"
+      ],
+      "correct_answer": 1,
+      "explanation": "Blast radius is the potential damage scope if automation goes wrong - critical for safely rolling out infrastructure changes."
+    },
+    {
+      "id": "X015",
+      "difficulty": "expert",
+      "category": "event_sourcing",
+      "timer_seconds": 20,
+      "question": "How does event sourcing improve incident forensics?",
+      "options": [
+        "Event sourcing makes debugging harder",
+        "Complete state change history enables time-travel debugging and root cause analysis",
+        "Current state is all you need",
+        "Events are immediately discarded"
+      ],
+      "correct_answer": 1,
+      "explanation": "Event sourcing preserves complete history of state changes, enabling reconstruction of system state at any point for forensics."
+    },
+    {
+      "id": "X016",
+      "difficulty": "expert",
+      "category": "cache_consistency",
+      "timer_seconds": 20,
+      "question": "What's the challenge with cache invalidation in distributed systems?",
+      "options": [
+        "Cache invalidation is trivial to implement correctly",
+        "Coordinating invalidation across nodes while maintaining consistency is complex",
+        "Caches never need invalidation",
+        "Stale data is never a problem"
+      ],
+      "correct_answer": 1,
+      "explanation": "Distributed cache invalidation must handle network partitions, timing, and consistency while avoiding thundering herd problems."
+    },
+    {
+      "id": "X017",
+      "difficulty": "expert",
+      "category": "load_balancing",
+      "timer_seconds": 20,
+      "question": "Why is consistent hashing better than round-robin for cache routing?",
+      "options": [
+        "Round-robin is always optimal",
+        "Consistent hashing minimizes cache misses when nodes change",
+        "Hashing is slower than round-robin",
+        "Load balancing strategy doesn't matter"
+      ],
+      "correct_answer": 1,
+      "explanation": "Consistent hashing ensures most keys stay on same nodes when topology changes, minimizing cache invalidation."
+    },
+    {
+      "id": "X018",
+      "difficulty": "expert",
+      "category": "ai_orchestration_patterns",
+      "timer_seconds": 20,
+      "question": "What's the advantage of hierarchical agent orchestration over flat coordination?",
+      "options": [
+        "Flat structures are always superior",
+        "Hierarchical coordination scales better and provides strategic oversight",
+        "Hierarchy adds no value",
+        "All agents should be equal"
+      ],
+      "correct_answer": 1,
+      "explanation": "Hierarchical orchestration enables strategic planning agents to coordinate specialist agents, scaling investigation complexity."
+    },
+    {
+      "id": "X019",
+      "difficulty": "expert",
+      "category": "database_isolation",
+      "timer_seconds": 20,
+      "question": "Why do lower isolation levels sometimes improve performance?",
+      "options": [
+        "Isolation levels don't affect performance",
+        "Reduced locking and blocking enable higher concurrency",
+        "Lower isolation is always better",
+        "Performance and isolation are unrelated"
+      ],
+      "correct_answer": 1,
+      "explanation": "Lower isolation reduces locking overhead and blocking, increasing throughput at the cost of potential consistency anomalies."
+    },
+    {
+      "id": "X020",
+      "difficulty": "expert",
+      "category": "system_complexity",
+      "timer_seconds": 20,
+      "question": "What's the 'zone of autonomy' in sociotechnical systems?",
+      "options": [
+        "A physical location in the data center",
+        "The boundary where human judgment is essential versus automatable decisions",
+        "All decisions should be automated",
+        "Automation zones don't exist"
+      ],
+      "correct_answer": 1,
+      "explanation": "Zone of autonomy defines which decisions can be safely automated and where human judgment remains essential for context and values."
+    }
+  ]
+}

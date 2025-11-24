@@ -1,0 +1,465 @@
+{
+  "metadata": {
+    "file": "Part 3 - Fun & Recovery Questions",
+    "version": "2.0",
+    "total_questions": 30,
+    "categories": {
+      "surprise_fun": 10,
+      "recovery_humor": 20
+    },
+    "last_updated": "2025-11-21",
+    "notes": "Surprise questions are historical/fun about machines and humans. Recovery questions use humor and are easier."
+  },
+  "questions": [
+    {
+      "id": "FUN001",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "What did Ada Lovelace predict in 1843 that machines could do beyond calculation?",
+      "options": [
+        "Make coffee automatically",
+        "Create music, art, and manipulate symbols",
+        "Replace all human workers",
+        "Time travel computations"
+      ],
+      "correct_answer": 1,
+      "explanation": "Ada Lovelace envisioned computers creating music and art, predicting artificial intelligence over 100 years before computers existed!"
+    },
+    {
+      "id": "FUN002",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "Why was Grace Hopper's team's first computer bug literally a bug?",
+      "options": [
+        "It was a metaphor for errors",
+        "An actual moth was found stuck in a relay causing malfunctions",
+        "They named software errors after insects",
+        "There was no real bug"
+      ],
+      "correct_answer": 1,
+      "explanation": "In 1947, a real moth was found in Harvard's Mark II computer relay, creating the term 'debugging' we still use today!"
+    },
+    {
+      "id": "FUN003",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "What was the Jacquard Loom's revolutionary contribution to computing?",
+      "options": [
+        "It was the first electric computer",
+        "Used punched cards for programmable patterns - inspiring early computers",
+        "It had nothing to do with computing",
+        "It invented the internet"
+      ],
+      "correct_answer": 1,
+      "explanation": "The 1804 Jacquard Loom used punched cards to 'program' weaving patterns, directly inspiring Charles Babbage and early computing!"
+    },
+    {
+      "id": "FUN004",
+      "difficulty": "surprise",
+      "category": "wordplay",
+      "timer_seconds": 10,
+      "question": "Why did the database administrator leave their spouse?",
+      "options": [
+        "Because of irreconcilable differences",
+        "Because they had relationship problems",
+        "Because there were too many foreign keys in the relationship",
+        "Because of communication issues"
+      ],
+      "correct_answer": 2,
+      "explanation": "Classic DBA humor - foreign keys create relationships between tables, just like... well, you get it! 😄"
+    },
+    {
+      "id": "FUN005",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "What did Alan Turing propose in 1950 to test machine intelligence?",
+      "options": [
+        "The Turing Test - can a machine's conversation fool a human judge?",
+        "A chess-playing algorithm",
+        "A mathematical proof",
+        "The first programming language"
+      ],
+      "correct_answer": 0,
+      "explanation": "The Turing Test asks: if a human can't distinguish machine from human in conversation, can we call the machine intelligent?"
+    },
+    {
+      "id": "FUN006",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "Who wrote the first algorithm intended for a machine (before computers existed)?",
+      "options": [
+        "Charles Babbage",
+        "Alan Turing",
+        "Ada Lovelace",
+        "Grace Hopper"
+      ],
+      "correct_answer": 2,
+      "explanation": "Ada Lovelace wrote the first algorithm for Babbage's Analytical Engine in 1843, making her the world's first programmer!"
+    },
+    {
+      "id": "FUN007",
+      "difficulty": "surprise",
+      "category": "wordplay",
+      "timer_seconds": 10,
+      "question": "Why do programmers prefer dark mode?",
+      "options": [
+        "Because light attracts bugs!",
+        "It saves electricity",
+        "Screens last longer",
+        "It's easier on the eyes"
+      ],
+      "correct_answer": 0,
+      "explanation": "Software bugs are attracted to light, obviously! 🐛💡 (And yes, dark mode is actually easier on the eyes too.)"
+    },
+    {
+      "id": "FUN008",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "What was ENIAC's original purpose when built in 1945?",
+      "options": [
+        "Playing games",
+        "Calculating artillery firing tables for the US Army",
+        "Weather forecasting",
+        "Banking transactions"
+      ],
+      "correct_answer": 1,
+      "explanation": "ENIAC, one of the first general-purpose computers, was built to calculate ballistic trajectories during WWII!"
+    },
+    {
+      "id": "FUN009",
+      "difficulty": "surprise",
+      "category": "puzzle",
+      "timer_seconds": 10,
+      "question": "If it takes 8 hours for 8 servers to process 8 terabytes of data, how long for 16 servers to process 16 terabytes?",
+      "options": [
+        "16 hours",
+        "4 hours",
+        "8 hours",
+        "32 hours"
+      ],
+      "correct_answer": 2,
+      "explanation": "Still 8 hours! Each server processes 1TB in 8 hours. Double the servers AND double the data = same time. Linear scaling!"
+    },
+    {
+      "id": "FUN010",
+      "difficulty": "surprise",
+      "category": "history",
+      "timer_seconds": 10,
+      "question": "What did the term 'computer' originally refer to before electronic machines?",
+      "options": [
+        "A type of calculator",
+        "A human person who performed calculations",
+        "A mechanical adding machine",
+        "It was always about machines"
+      ],
+      "correct_answer": 1,
+      "explanation": "Before the 1940s, 'computers' were people (often women) employed to perform mathematical calculations by hand!"
+    },
+    {
+      "id": "REC001",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Oops! That was tricky. Let's try something easier: What's the most important first step when production goes down?",
+      "options": [
+        "Panic immediately",
+        "Check if you can restore service quickly",
+        "Start writing the postmortem",
+        "Update your resume"
+      ],
+      "correct_answer": 1,
+      "explanation": "Step 1: Breathe. Step 2: Restore service. Step 3: Then investigate. You've got this! 💪"
+    },
+    {
+      "id": "REC002",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "No worries, happens to the best of us! Quick one: What do logs, metrics, and traces help you do?",
+      "options": [
+        "Impress your friends at parties",
+        "Understand what's happening in production systems",
+        "Make coffee taste better",
+        "Predict lottery numbers"
+      ],
+      "correct_answer": 1,
+      "explanation": "These three give you observability - like x-ray vision into your production systems! See? You knew that! ✨"
+    },
+    {
+      "id": "REC003",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Hey, that last one was tough! Here's a gimme: What's better - spending all your time fighting fires, or automating solutions?",
+      "options": [
+        "Fighting fires builds character",
+        "Automating solutions so you can build cool stuff",
+        "Neither, just ignore problems",
+        "Fires keep things exciting"
+      ],
+      "correct_answer": 1,
+      "explanation": "Exactly! Work smarter, not harder. That's what AI for production systems is all about! 🚀"
+    },
+    {
+      "id": "REC004",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Shake it off! Easy question: What's the goal of observability?",
+      "options": [
+        "Generate as many dashboards as possible",
+        "Understand system behavior from external outputs",
+        "Make charts that look impressive",
+        "Collect data you'll never look at"
+      ],
+      "correct_answer": 1,
+      "explanation": "Bingo! It's about understanding, not just collecting. Quality over quantity! You're on a roll! 📊"
+    },
+    {
+      "id": "REC005",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Not your fault that one was sneaky! Simple one: Why do we have staging environments?",
+      "options": [
+        "To test changes before production",
+        "To waste money on extra servers",
+        "Because we like complexity",
+        "To confuse junior engineers"
+      ],
+      "correct_answer": 0,
+      "explanation": "Test in staging, deploy to production with confidence! You're absolutely right! 🎯"
+    },
+    {
+      "id": "REC006",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Don't worry, even senior engineers miss these sometimes! What does MTTR measure?",
+      "options": [
+        "Mean Time To Resume Netflix",
+        "Mean Time To Resolve incidents",
+        "Maximum Time To Retry",
+        "My Time To Relax"
+      ],
+      "correct_answer": 1,
+      "explanation": "Mean Time To Resolve - how fast you fix things! (Though Mean Time To Resume Netflix has its place too 😄)"
+    },
+    {
+      "id": "REC007",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Hey, at least you learned something! Easy one: What's an incident?",
+      "options": [
+        "When your code works on the first try",
+        "An event that degrades or disrupts service",
+        "A scheduled maintenance window",
+        "Free pizza in the break room"
+      ],
+      "correct_answer": 1,
+      "explanation": "An incident is an unplanned service disruption. Now you're cooking! 🔥 (The good kind of fire!)"
+    },
+    {
+      "id": "REC008",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "That was a curveball! Straightforward one: What does CI/CD stand for?",
+      "options": [
+        "Coffee Integration / Caffeine Deployment",
+        "Continuous Integration / Continuous Deployment",
+        "Code Inspection / Critical Debugging",
+        "Chaos Implementation / Confusing Developers"
+      ],
+      "correct_answer": 1,
+      "explanation": "Continuous Integration and Deployment! (Though Coffee Integration is equally important ☕)"
+    },
+    {
+      "id": "REC009",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "It happens! Let's get back on track: What's a microservice?",
+      "options": [
+        "A very small waiter at a restaurant",
+        "A small, independently deployable service",
+        "A service that's easy to understand",
+        "A miniature version of a monolith"
+      ],
+      "correct_answer": 1,
+      "explanation": "Small, focused services that can be deployed independently! You got it! 🎉"
+    },
+    {
+      "id": "REC010",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Tricky one back there! Confidence booster: What's the cloud?",
+      "options": [
+        "Actual clouds that store data",
+        "Someone else's computer you rent",
+        "A type of software",
+        "Magic internet storage"
+      ],
+      "correct_answer": 1,
+      "explanation": "The cloud is just someone else's computer! But fancier. And you don't have to maintain it! ☁️"
+    },
+    {
+      "id": "REC011",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Everyone misses one sometimes! Quick win: What's toil in engineering?",
+      "options": [
+        "Hard but valuable work",
+        "Manual, repetitive work that doesn't scale",
+        "Any work you don't like",
+        "Physical labor"
+      ],
+      "correct_answer": 1,
+      "explanation": "Toil is the repetitive manual work we should automate! Less toil = more innovation! 💡"
+    },
+    {
+      "id": "REC012",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "That's okay, we're learning! Easy one: What's an API?",
+      "options": [
+        "A Programming Interface that lets software talk to software",
+        "A type of coffee",
+        "Advanced Programming Instructions",
+        "A programming language"
+      ],
+      "correct_answer": 0,
+      "explanation": "APIs let services talk to each other! Like a universal translator for software! 🔌"
+    },
+    {
+      "id": "REC013",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Keep going, you're doing great! What's a container?",
+      "options": [
+        "A box for shipping code",
+        "A packaged application with its dependencies",
+        "A type of database",
+        "A storage bucket"
+      ],
+      "correct_answer": 1,
+      "explanation": "Containers package apps with everything they need to run anywhere! Like a lunchbox for code! 📦"
+    },
+    {
+      "id": "REC014",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Shake it off! Simple question: What's deployment?",
+      "options": [
+        "When you finally ship code to production",
+        "Hiring new employees",
+        "Moving your desk",
+        "Deleting old code"
+      ],
+      "correct_answer": 0,
+      "explanation": "Deployment = shipping your code live! The moment of truth! And you nailed this answer! 🚢"
+    },
+    {
+      "id": "REC015",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Not your fault that was worded weirdly! What's a rollback?",
+      "options": [
+        "A gymnastics move",
+        "Reverting to a previous working version",
+        "Moving backward in your career",
+        "A type of bread"
+      ],
+      "correct_answer": 1,
+      "explanation": "When things break, rollback to the last good version! Your safety net! 🛟"
+    },
+    {
+      "id": "REC016",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "You're still here, that's what matters! What's monitoring?",
+      "options": [
+        "Watching Netflix at work",
+        "Tracking metrics to know when things break",
+        "Managing your team",
+        "Reading code reviews"
+      ],
+      "correct_answer": 1,
+      "explanation": "Monitoring watches your systems so you can sleep at night! (Eventually!) 😴"
+    },
+    {
+      "id": "REC017",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Let's reset with an easy win! What's a dependency?",
+      "options": [
+        "Being dependent on coffee (accurate)",
+        "Code or service that another system needs to work",
+        "A type of bug",
+        "Your favorite programming language"
+      ],
+      "correct_answer": 1,
+      "explanation": "Dependencies are what your code needs to run! Like coffee for engineers! ☕ (That's a dependency too!)"
+    },
+    {
+      "id": "REC018",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "You've got this! What's latency?",
+      "options": [
+        "The time between when something is late",
+        "The delay between request and response",
+        "A type of coffee",
+        "How long meetings last"
+      ],
+      "correct_answer": 1,
+      "explanation": "Latency is delay - how long things take! Low latency = fast = happy users! ⚡"
+    },
+    {
+      "id": "REC019",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Almost there! What's a bug?",
+      "options": [
+        "A feature that works too well",
+        "An error or flaw in code",
+        "A small insect",
+        "Something that only happens to other people"
+      ],
+      "correct_answer": 1,
+      "explanation": "Bugs are errors in code! And yes, the first one was literally an insect! 🐛 You knew that!"
+    },
+    {
+      "id": "REC020",
+      "difficulty": "recovery",
+      "category": "easy_humor",
+      "timer_seconds": 12,
+      "question": "Finish strong! What's uptime?",
+      "options": [
+        "When you wake up",
+        "The percentage of time a service is available and working",
+        "An optimistic attitude",
+        "The opposite of downtown"
+      ],
+      "correct_answer": 1,
+      "explanation": "Uptime = service is working! We all want 99.9%+ uptime! You're back on track! 🎯"
+    }
+  ]
+}
