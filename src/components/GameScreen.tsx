@@ -28,6 +28,7 @@ export function GameScreen() {
         points: number;
         streak: number;
         message?: string;
+        subtitle?: string;
         breakdown?: {
             base: number;
             time: number;
@@ -61,15 +62,6 @@ export function GameScreen() {
             });
         }
 
-        // Determine message
-        let message = result.correct ? "Great job!" : "Keep going!";
-        if (result.recoveryTriggered) {
-            message = "Don't worry! Here's a chance to redeem yourself!";
-        } else if (recoveryMode) {
-            // We just answered a recovery question
-            message = result.correct ? "Recovery Successful! Streak Saved!" : "Recovery Failed. Moving on...";
-        }
-
         // Find correct answer text for feedback
         const correctAnswer = activeQuestion.answers.find(a => a.correct);
 
@@ -78,7 +70,8 @@ export function GameScreen() {
             isCorrect: result.correct,
             points: result.points,
             streak: gameState.streak, // Updated streak from store
-            message: message,
+            message: result.feedbackTitle,
+            subtitle: result.feedbackSubtitle,
             breakdown: result.breakdown,
             correctAnswerText: correctAnswer?.text,
             explanation: activeQuestion.explanation
@@ -178,6 +171,7 @@ export function GameScreen() {
                         points={feedback.points}
                         breakdown={feedback.breakdown}
                         message={feedback.message}
+                        subtitle={feedback.subtitle}
                         correctAnswerText={feedback.correctAnswerText}
                         explanation={feedback.explanation}
                     />

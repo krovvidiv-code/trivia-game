@@ -4,9 +4,19 @@ import { Sparkles } from 'lucide-react';
 
 interface PersonalityRevealProps {
     personality: PersonalityProfile;
+    playerName: string;
 }
 
-export function PersonalityReveal({ personality }: PersonalityRevealProps) {
+export function PersonalityReveal({ personality, playerName }: PersonalityRevealProps) {
+    // Personalize the description with player name
+    const personalizedDescription = personality.description.replace(
+        /^You /,
+        `${playerName}, you `
+    ).replace(
+        / you /g,
+        ` you `
+    );
+
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -71,7 +81,7 @@ export function PersonalityReveal({ personality }: PersonalityRevealProps) {
                 className="bg-brand-cream/50 rounded-xl p-6 max-w-2xl mx-auto space-y-4"
             >
                 <p className="text-brand-dark/80 leading-relaxed">
-                    {personality.description}
+                    {personalizedDescription}
                 </p>
 
                 <div className="pt-4 border-t border-brand-dark/5">

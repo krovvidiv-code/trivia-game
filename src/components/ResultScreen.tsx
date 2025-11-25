@@ -10,12 +10,14 @@ import { SocialShare } from './SocialShare';
 import { type PersonalityProfile } from '@/types';
 
 export function ResultScreen() {
-    const gameState = useGameStore();
-    const { resetGame, questions, answers, totalTime, longestStreak } = gameState;
+    const resetGame = useGameStore(state => state.resetGame);
+    const { questions, answers, totalTime, longestStreak, playerName } = useGameStore();
     const [personality, setPersonality] = useState<PersonalityProfile | null>(null);
 
     useEffect(() => {
-        const result = determinePersonality(gameState);
+        // Re-fetch the entire state for determinePersonality as it expects the full state object
+        const currentGameState = useGameStore.getState();
+        const result = determinePersonality(currentGameState);
         setPersonality(result);
     }, []); // Run once on mount
 
@@ -69,6 +71,7 @@ export function ResultScreen() {
 
                 <PersonalityReveal
                     personality={personality}
+                    playerName={playerName}
                 />
 
                 {/* Secret Employee Banner */}

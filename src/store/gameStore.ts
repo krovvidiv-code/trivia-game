@@ -1,13 +1,18 @@
 import { create } from 'zustand';
 import type { GameState } from '@/types';
 import { startNewGame, getRecoveryQuestion } from '@/services/questionService';
+import { getContextualFeedback, type FeedbackContext } from '@/data/feedbackMessages';
 
 interface GameStore extends GameState {
     startGame: (name: string, email: string) => Promise<void>;
-    submitAnswer: (questionId: string, answerId: string, timeRemaining: number) => Promise<{ correct: boolean; points: number; breakdown: any; recoveryTriggered?: boolean }>;
+    submitAnswer: (questionId: string, answerId: string, timeRemaining: number) => Promise<{ correct: boolean; points: number; breakdown: any; recoveryTriggered?: boolean; feedbackTitle: string; feedbackSubtitle?: string }>;
     nextQuestion: () => Promise<void>;
     resetGame: () => void;
     isLoading: boolean;
+    // Context tracking
+    consecutiveWrong: number;
+    fastAnswerCount: number;
+    timeoutCount: number;
 }
 
 const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion' | 'resetGame' | 'isLoading'> = {
@@ -47,12 +52,20 @@ const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion
         totalAnswerTime: 0,
         fastestAnswer: Infinity,
         slowestAnswer: 0
-    }
+    },
+
+    // Context tracking for feedback
+    consecutiveWrong: 0,
+    fastAnswerCount: 0,
+    timeoutCount: 0
 };
 
 export const useGameStore = create<GameStore>((set, get) => ({
     ...initialState,
     isLoading: false,
+    consecutiveWrong: 0,
+    fastAnswerCount: 0,
+    timeoutCount: 0,
 
     startGame: async (name, email) => {
         set({ isLoading: true });
@@ -220,14 +233,61 @@ export const useGameStore = create<GameStore>((set, get) => ({
             speedStats: newSpeedStats,
             recoveryMode: newRecoveryMode,
             recoveryQuestion: nextRecoveryQuestion,
-            recoveryQuestionsUsed: newRecoveryQuestionsUsed
+            recoveryQuestionsUsed: newRecoveryQuestionsUsed,
+            // Update context tracking
+            consecutiveWrong: isCorrect ? 0 : state.consecutiveWrong + 1,
+            fastAnswerCount: (isCorrect && timeTaken < question.timer_seconds * 0.3) ? state.fastAnswerCount + 1 : state.fastAnswerCount,
+            timeoutCount: timeRemaining === 0 ? state.timeoutCount + 1 : state.timeoutCount,
         }));
+
+        // Determine feedback context
+        let feedbackContext: FeedbackContext;
+
+        if (timeRemaining === 0) {
+            // Timeout
+            feedbackContext = 'timeout';
+        } else if (isCorrect) {
+            // Correct answer - determine which positive context
+            const isFast = timeTaken < question.timer_seconds * 0.3;
+            const totalCorrect = Object.values(state.answers).filter(a => a.correct).length + 1;
+
+            if (totalCorrect === 1) {
+                feedbackContext = 'first_correct';
+            } else if (newStreak >= 4) {
+                feedbackContext = 'hot_streak';
+            } else if (isFast) {
+                feedbackContext = 'fast_correct';
+            } else if (newStreak >= 2) {
+                feedbackContext = 'streak_building';
+            } else {
+                feedbackContext = 'default_correct';
+            }
+        } else {
+            // Wrong answer - determine which negative context
+            const newConsecutiveWrong = state.consecutiveWrong + 1;
+            const wasTricky = question.difficulty === 'hard' || question.difficulty === 'expert';
+            const hadStreak = state.streak > 0;
+
+            if (hadStreak) {
+                feedbackContext = 'streak_broken';
+            } else if (wasTricky) {
+                feedbackContext = 'tricky_wrong';
+            } else if (newConsecutiveWrong >= 2) {
+                feedbackContext = 'multiple_wrong';
+            } else {
+                feedbackContext = 'default_wrong';
+            }
+        }
+
+        const feedbackMessage = getContextualFeedback(feedbackContext);
 
         return {
             correct: isCorrect,
             points: pointsEarned,
             breakdown,
-            recoveryTriggered
+            recoveryTriggered,
+            feedbackTitle: feedbackMessage.title,
+            feedbackSubtitle: feedbackMessage.subtitle
         };
     },
 

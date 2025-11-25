@@ -15,6 +15,7 @@ interface FeedbackOverlayProps {
     explanation?: string;
     onComplete?: () => void;
     message?: string;
+    subtitle?: string;
 }
 
 export function FeedbackOverlay({
@@ -25,6 +26,8 @@ export function FeedbackOverlay({
     correctAnswerText,
     explanation,
     onComplete,
+    message,
+    subtitle,
 }: FeedbackOverlayProps) {
     useEffect(() => {
         if (isVisible) {
@@ -73,8 +76,14 @@ export function FeedbackOverlay({
 
                         {/* Title */}
                         <h2 className="text-3xl font-serif font-bold text-brand-dark">
-                            {isCorrect ? 'Correct!' : 'Not Quite!'}
+                            {message || (isCorrect ? 'Correct!' : 'Not Quite!')}
                         </h2>
+
+                        {subtitle && (
+                            <p className="text-lg text-brand-dark/60 mt-2">
+                                {subtitle}
+                            </p>
+                        )}
 
                         {isCorrect && (
                             <div className="space-y-2">
