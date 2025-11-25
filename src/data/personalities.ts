@@ -63,7 +63,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "The Human Computer",
         description: "Your calculations are precise and your knowledge is solid. Like the mathematician who calculated trajectories for Project Mercury, you are the reliable force that gets the mission home safely.",
         quote: "I don't have a feeling of inferiority. Never had. I'm as good as anyone, but no better.",
-        image: "",
+        image: "/assets/personalities/katherine_johnson.png",
         shareText: "I got Katherine Johnson! Precision and reliability. #ResolveAI #TechTrivia"
     },
     STEVE_WOZNIAK: {
