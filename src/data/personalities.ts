@@ -72,7 +72,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "The Engineer's Engineer",
         description: "You love the pure joy of engineering. You understand how things work from the circuit board up. You might not care about the marketing, but your technical score is undeniable.",
         quote: "Artists work best alone. Work alone.",
-        image: "",
+        image: "/assets/personalities/steve_wozniak.png",
         shareText: "I'm a Woz! Pure engineering skill. #ResolveAI #TechTrivia"
     },
     HEDY_LAMARR: {
@@ -81,7 +81,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "The Inventor",
         description: "More than meets the eye. You have a creative mind that sees connections others miss. Like the inventor of frequency-hopping spread spectrum, your genius is ahead of its time.",
         quote: "All creative people want to do the unexpected.",
-        image: "",
+        image: "/assets/personalities/hedy_lamarr.png",
         shareText: "I got Hedy Lamarr! Innovation and creativity. #ResolveAI #TechTrivia"
     },
     TIM_BERNERS_LEE: {
@@ -90,7 +90,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "The Web Weaver",
         description: "You understand the fundamental connections that make the system work. You believe in open standards and information sharing. You scored well on the technical infrastructure questions.",
         quote: "The Web does not just connect machines, it connects people.",
-        image: "",
+        image: "/assets/personalities/tim_berners_lee.png",
         shareText: "I'm a Tim Berners-Lee! Connecting the dots. #ResolveAI #TechTrivia"
     },
     DENNIS_RITCHIE: {
@@ -99,7 +99,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "The Systems Architect",
         description: "You understand the low-level roots of modern computing. C and Unix are in your DNA. You appreciate simplicity, modularity, and tools that do one thing well.",
         quote: "UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity.",
-        image: "",
+        image: "/assets/personalities/dennis_ritchie.png",
         shareText: "I got Dennis Ritchie! Systems level mastery. #ResolveAI #TechTrivia"
     },
 
@@ -110,7 +110,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "The AI Pioneer",
         description: "You have a deep appreciation for the history and future of Artificial Intelligence. You nailed the surprise questions and showed a breadth of knowledge that spans decades.",
         quote: "Will robots inherit the earth? Yes, but they will be our children.",
-        image: "",
+        image: "/assets/personalities/marvin_minsky.png",
         shareText: "I'm a Marvin Minsky level AI expert! #ResolveAI #TechTrivia"
     },
     SECRET_EMPLOYEE: {
@@ -119,7 +119,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "You Know Too Much...",
         description: "🚨 RECRUITING ALERT 🚨 You answered every Resolve AI question correctly. Either you work here, you stalk our blog, or you are exactly who we need to hire. Come say hi!",
         quote: "We're not creepy, just impressed.",
-        image: "",
+        image: "/assets/personalities/secret_employee.png",
         shareText: "I might be a Secret Employee at Resolve AI... I know too much! #ResolveAI #TechTrivia"
     },
     ROBERT_DOWNEY_JR: {
@@ -128,7 +128,7 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         tagline: "Never Give Up",
         description: "Like a true Hollywood comeback story, you started rough but finished strong! You used the recovery questions to your advantage and proved that resilience is the most important skill in production.",
         quote: "I didn't come this far to only come this far.",
-        image: "",
+        image: "/assets/personalities/comeback_kid.png",
         shareText: "I'm the Comeback Kid! Never give up. #ResolveAI #TechTrivia"
     },
     KEVIN_MITNICK: {
