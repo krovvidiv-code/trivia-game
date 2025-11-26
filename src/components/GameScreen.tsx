@@ -136,6 +136,7 @@ export function GameScreen() {
                 streak={gameState.streak}
                 currentQuestion={currentQuestionIndex + 1}
                 totalQuestions={12}
+                questionsCorrect={Object.values(gameState.answers).filter(a => a.correct && !a.isRecovery).length}
             />
 
             <main className="container mx-auto px-4 md:px-6 pt-24 pb-12 relative z-10 min-h-[calc(100vh-80px)] flex flex-col justify-center">
