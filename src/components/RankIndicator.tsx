@@ -15,17 +15,18 @@ type Rank = {
 };
 
 const RANKS: Rank[] = [
-    { title: "Fetching Coffee...", threshold: 0, color: "#9CA3AF", icon: Terminal, description: "" },
-    { title: "Copying from StackOverflow...", threshold: 1, color: "#3B82F6", icon: Code, description: "" },
-    { title: "It Works on My Machine...", threshold: 3, color: "#06B6D4", icon: Cpu, description: "" },
-    { title: "Optimizing Algorithms...", threshold: 6, color: "#22C55E", icon: Zap, description: "" },
-    { title: "Seeing the Matrix...", threshold: 9, color: "#A855F7", icon: Brain, description: "" },
-    { title: "Inventing the Future...", threshold: 11, color: "#F97316", icon: Rocket, description: "" },
-    { title: "ONE WITH THE MACHINE", threshold: 12, color: "#D9F400", icon: Sparkles, description: "" },
+    { title: "Initializing Dev Environment...", threshold: 0, color: "#9CA3AF", icon: Terminal, description: "" },
+    { title: "Syntax Looks Good...", threshold: 1, color: "#3B82F6", icon: Code, description: "" },
+    { title: "Logic is Flowing...", threshold: 3, color: "#06B6D4", icon: Cpu, description: "" },
+    { title: "System Scaling Beautifully...", threshold: 6, color: "#22C55E", icon: Zap, description: "" },
+    { title: "Optimizing Kernel...", threshold: 9, color: "#A855F7", icon: Brain, description: "" },
+    { title: "Rewriting the Laws of Physics...", threshold: 11, color: "#F97316", icon: Rocket, description: "" },
+    { title: "COMPLETE SYSTEM SYNC", threshold: 12, color: "#D9F400", icon: Sparkles, description: "" },
 ];
 
 export function RankIndicator({ score }: RankIndicatorProps) {
     const [currentRankIndex, setCurrentRankIndex] = useState(0);
+    const totalQuestions = 12; // Hardcoded for now as per game logic
 
     useEffect(() => {
         let newRankIndex = 0;
@@ -39,19 +40,10 @@ export function RankIndicator({ score }: RankIndicatorProps) {
     }, [score]);
 
     const currentRank = RANKS[currentRankIndex];
-    const nextRank = RANKS[currentRankIndex + 1];
 
-    // Calculate progress to next rank
-    let progress = 0;
-    if (nextRank) {
-        const currentThreshold = currentRank.threshold;
-        const nextThreshold = nextRank.threshold;
-        const range = nextThreshold - currentThreshold;
-        const currentProgress = score - currentThreshold;
-        progress = (currentProgress / range) * 100;
-    } else {
-        progress = 100; // Max rank
-    }
+    // Calculate global progress
+    // We want the bar to fill up from 0 to 100% based on score/12
+    const progress = (score / totalQuestions) * 100;
 
     const Icon = currentRank.icon;
 
@@ -80,10 +72,23 @@ export function RankIndicator({ score }: RankIndicatorProps) {
                     </motion.span>
                 </AnimatePresence>
 
-                {/* Compact Progress Bar */}
-                <div className="h-1.5 bg-brand-dark/5 rounded-full overflow-hidden w-full">
+                {/* Continuous Progress Bar with Markers */}
+                <div className="h-1.5 bg-brand-dark/5 rounded-full overflow-hidden w-full relative">
+                    {/* Markers */}
+                    {RANKS.map((rank) => {
+                        if (rank.threshold === 0 || rank.threshold === 12) return null;
+                        const leftPos = (rank.threshold / totalQuestions) * 100;
+                        return (
+                            <div
+                                key={rank.title}
+                                className="absolute top-0 bottom-0 w-0.5 bg-white/50 z-10"
+                                style={{ left: `${leftPos}%` }}
+                            />
+                        );
+                    })}
+
                     <motion.div
-                        className="h-full rounded-full"
+                        className="h-full rounded-full relative z-0"
                         style={{ backgroundColor: currentRank.color }}
                         initial={{ width: 0 }}
                         animate={{ width: `${progress}%` }}
