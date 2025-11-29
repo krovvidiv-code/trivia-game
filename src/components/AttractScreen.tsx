@@ -43,7 +43,7 @@ export function AttractScreen() {
                         <span className="text-sm font-bold text-brand-dark/60 uppercase tracking-wider">Did you know?</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black text-brand-dark tracking-tight mb-2">
-                        Resolve AI <span className="text-brand-olive">Trivia</span>
+                        Which AI Legend <span className="text-brand-olive">Are You?</span>
                     </h1>
                 </motion.div>
 
