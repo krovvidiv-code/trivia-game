@@ -3,9 +3,14 @@ import { Layout } from '@/components/Layout';
 import { WelcomeScreen } from '@/components/WelcomeScreen';
 import { GameScreen } from '@/components/GameScreen';
 import { ResultScreen } from '@/components/ResultScreen';
+import { AttractScreen } from '@/components/AttractScreen';
 
 function App() {
-  const { isGameActive, isGameOver } = useGameStore();
+  const { isGameActive, isGameOver, isAttractModeActive } = useGameStore();
+
+  if (isAttractModeActive) {
+    return <AttractScreen />;
+  }
 
   return (
     <Layout>

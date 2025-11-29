@@ -4,6 +4,10 @@ import { startNewGame, getRecoveryQuestion } from '@/services/questionService';
 import { getContextualFeedback, type FeedbackContext } from '@/data/feedbackMessages';
 
 interface GameStore extends GameState {
+    // Attract Mode
+    isAttractModeActive: boolean;
+    enterWelcomeScreen: () => void;
+
     startGame: (name: string, email: string) => Promise<void>;
     submitAnswer: (questionId: string, answerId: string, timeRemaining: number) => Promise<{ correct: boolean; points: number; breakdown: any; recoveryTriggered?: boolean; feedbackTitle: string; feedbackSubtitle?: string }>;
     nextQuestion: () => Promise<void>;
@@ -15,7 +19,7 @@ interface GameStore extends GameState {
     timeoutCount: number;
 }
 
-const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion' | 'resetGame' | 'isLoading'> = {
+const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion' | 'resetGame' | 'isLoading' | 'enterWelcomeScreen'> = {
     currentQuestionIndex: 0,
     score: 0,
     streak: 0,
@@ -23,6 +27,7 @@ const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion
     questions: [],
     isGameActive: false,
     isGameOver: false,
+    isAttractModeActive: true,
     playerName: '',
     playerEmail: '',
     answers: {},
@@ -66,6 +71,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
     consecutiveWrong: 0,
     fastAnswerCount: 0,
     timeoutCount: 0,
+
+    enterWelcomeScreen: () => set({ isAttractModeActive: false }),
 
     startGame: async (name, email) => {
         set({ isLoading: true });
