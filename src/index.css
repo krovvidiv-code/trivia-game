@@ -145,7 +145,7 @@
   opacity: 0.9 !important;
 }
 
-/* Attract Screen - Remove top left accent color, keep minimal accent */
+/* Attract Screen - Clean black background with accent colors */
 .presentation-mode .attract-screen {
   background-color: #000000 !important;
 }
@@ -160,8 +160,19 @@
   opacity: 1 !important;
 }
 
-.presentation-mode .attract-screen .text-brand-olive {
+.presentation-mode .attract-screen .text-brand-olive,
+.presentation-mode .attract-screen .text-brand-lime {
   color: #D9F400 !important;
+}
+
+/* Attract Screen Start Button - Filled accent color */
+.presentation-mode .attract-screen .bg-brand-lime {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode .attract-screen .text-black {
+  color: #000000 !important;
 }
 
 /* Remove top accent bar from attract screen */

@@ -31,18 +31,19 @@ export function AttractScreen() {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-olive/10 rounded-full blur-[100px]" />
             </div>
 
-            <div className="w-full max-w-2xl z-10 flex flex-col items-center gap-8">
+            <div className="w-full max-w-4xl z-10 flex flex-col items-center gap-8">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center"
                 >
-                    <h1 className="text-4xl md:text-5xl font-black text-brand-lime tracking-tight mb-2">
-                        Play our trivia to win unique prizes & swag!
+                    <h1 className="text-4xl md:text-5xl font-black text-brand-lime tracking-tight mb-2 leading-tight">
+                        Play our trivia.<br />
+                        Win unique prizes & swag!
                     </h1>
-                    <p className="text-lg md:text-xl text-brand-dark/70 font-medium mt-2">
-                        Test your knowledge on AI for prod!
+                    <p className="text-lg md:text-xl text-brand-lime font-medium mt-2">
+                        Test your knowledge on AI for prod
                     </p>
                 </motion.div>
 
@@ -79,13 +80,10 @@ export function AttractScreen() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={enterWelcomeScreen}
-                    className="group relative px-8 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3 overflow-hidden"
+                    className="group relative px-8 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3"
                 >
-                    <span className="relative z-10">Start Playing</span>
-                    <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
-
-                    {/* Hover Effect */}
-                    <div className="absolute inset-0 bg-brand-olive opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span>Start Playing</span>
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
 
                 <p className="text-brand-dark/40 text-sm font-medium">
