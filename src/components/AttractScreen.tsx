@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '@/store/gameStore';
 import { INTERESTING_FACTS } from '@/data/facts';
-import { ArrowRight, Brain, Cpu, Globe, Terminal } from 'lucide-react';
+import { Brain, Cpu, Globe, Terminal } from 'lucide-react';
 
 export function AttractScreen() {
     const enterWelcomeScreen = useGameStore(state => state.enterWelcomeScreen);
@@ -73,10 +73,9 @@ export function AttractScreen() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={enterWelcomeScreen}
-                    className="group relative px-12 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-4 min-w-[280px]"
+                    className="px-12 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all"
                 >
-                    <span>Start Playing</span>
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    Start Playing
                 </motion.button>
 
                 <p className="text-brand-dark/40 text-sm font-medium">
