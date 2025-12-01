@@ -73,10 +73,10 @@ export function AttractScreen() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={enterWelcomeScreen}
-                    className="group relative px-8 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3"
+                    className="group relative px-12 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-4 min-w-[280px]"
                 >
                     <span>Start Playing</span>
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </motion.button>
 
                 <p className="text-brand-dark/40 text-sm font-medium">
