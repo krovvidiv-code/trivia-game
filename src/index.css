@@ -344,11 +344,23 @@
   display: none !important;
 }
 
-/* Ensure attract screen background elements are completely removed */
-.presentation-mode .attract-screen .absolute.inset-0,
-.presentation-mode .attract-screen [class*="bg-brand-lime"],
-.presentation-mode .attract-screen [class*="bg-brand-olive"] {
+/* Ensure attract screen background gradients are removed, but keep fact card */
+.presentation-mode .attract-screen .absolute.inset-0.overflow-hidden,
+.presentation-mode .attract-screen .bg-brand-lime\/20,
+.presentation-mode .attract-screen .bg-brand-olive\/10,
+.presentation-mode .attract-screen .rounded-full.blur-\[100px\] {
   display: none !important;
+}
+
+/* Keep fact card elements visible but style them for dark mode */
+.presentation-mode .attract-screen .bg-brand-lime\/10 {
+  background-color: rgba(217, 244, 0, 0.1) !important;
+  display: block !important;
+}
+
+.presentation-mode .attract-screen .bg-brand-lime {
+  background-color: #D9F400 !important;
+  display: block !important;
 }
 
 /* Question Card Answer Options - Minimal accent usage */
