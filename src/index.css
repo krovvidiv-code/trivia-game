@@ -54,13 +54,185 @@
   }
 }
 
-/* Presentation Mode Overrides */
-.presentation-mode {
-  /* Remove noisy background pattern */
+/* ===============================================
+   PRESENTATION MODE DARK THEME OVERRIDES
+   =============================================== */
+
+/* Main App Background - Black everywhere */
+.presentation-mode,
+.presentation-mode body {
+  background-color: #000000 !important;
   background-image: none !important;
-  background-color: var(--color-brand-olive) !important;
 }
 
+/* Layout Component - Main container and footer */
+.presentation-mode .min-h-screen {
+  background-color: #000000 !important;
+}
+
+.presentation-mode footer,
+.presentation-mode .absolute.bottom-4 {
+  color: #f8f8f5 !important;
+  opacity: 0.6 !important;
+}
+
+/* Welcome Screen Overrides */
+.presentation-mode .bg-brand-cream {
+  background-color: #000000 !important;
+}
+
+.presentation-mode .bg-white\/80,
+.presentation-mode .backdrop-blur-sm {
+  background-color: #f8f8f5 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.presentation-mode .text-brand-dark {
+  color: #000000 !important;
+}
+
+.presentation-mode .text-brand-dark\/70 {
+  color: #000000 !important;
+  opacity: 0.8 !important;
+}
+
+/* Question Card - Transform white cards to light gray/cream for readability */
+.presentation-mode .bg-white {
+  background-color: #f8f8f5 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode .bg-white .text-brand-dark,
+.presentation-mode .bg-white .text-brand-dark\/80,
+.presentation-mode .bg-white .text-brand-dark\/60,
+.presentation-mode .bg-white .text-brand-dark\/40,
+.presentation-mode .bg-white p,
+.presentation-mode .bg-white h2 {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Result Screen - Dark background with light content areas */
+.presentation-mode .bg-gradient-to-br {
+  background: #000000 !important;
+}
+
+.presentation-mode .from-brand-light {
+  background: #000000 !important;
+}
+
+.presentation-mode .to-brand-extra-light {
+  background: #000000 !important;
+}
+
+/* Text colors for dark background */
+.presentation-mode h1,
+.presentation-mode h2,
+.presentation-mode h3,
+.presentation-mode h4,
+.presentation-mode .text-brand-dark {
+  color: #f8f8f5 !important;
+}
+
+.presentation-mode .text-brand-dark\/70,
+.presentation-mode .text-lg {
+  color: #f8f8f5 !important;
+  opacity: 0.9 !important;
+}
+
+/* Attract Screen Specific */
+.presentation-mode .attract-screen {
+  background-color: #000000 !important;
+}
+
+.presentation-mode .attract-screen h1,
+.presentation-mode .attract-screen h1 span,
+.presentation-mode .attract-screen p,
+.presentation-mode .attract-screen p span,
+.presentation-mode .attract-screen .text-brand-dark,
+.presentation-mode .attract-screen .text-brand-dark\/70 {
+  color: #f8f8f5 !important;
+  opacity: 1 !important;
+}
+
+.presentation-mode .attract-screen .text-brand-olive {
+  color: #D9F400 !important;
+}
+
+/* Card and modal backgrounds - keep light for image visibility */
+.presentation-mode .shadow-xl,
+.presentation-mode .border-brand-dark\/5,
+.presentation-mode .border-brand-dark\/10 {
+  background-color: #f8f8f5 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Button Overrides for Dark Theme */
+.presentation-mode button.bg-brand-olive,
+.presentation-mode .bg-brand-olive {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode button.bg-brand-olive:hover,
+.presentation-mode .bg-brand-olive:hover {
+  background-color: #c4e600 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode button.bg-brand-lime,
+.presentation-mode .bg-brand-lime {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode button.bg-brand-lime:hover,
+.presentation-mode .bg-brand-lime:hover {
+  background-color: #c4e600 !important;
+  color: #000000 !important;
+}
+
+/* Stats and special elements */
+.presentation-mode .bg-brand-dark,
+.presentation-mode .text-white {
+  background-color: #f8f8f5 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode .animate-pulse {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+/* Input fields */
+.presentation-mode input {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.presentation-mode input:focus {
+  border-color: #D9F400 !important;
+  box-shadow: 0 0 0 2px rgba(217, 244, 0, 0.2) !important;
+}
+
+/* Remove background blur and transparency effects */
+.presentation-mode .backdrop-blur-sm {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.presentation-mode .blur-3xl {
+  filter: none !important;
+  opacity: 0 !important;
+}
+
+.presentation-mode .bg-black\/60 {
+  background-color: #f8f8f5 !important;
+}
+
+/* Enhanced borders for better visibility */
 .presentation-mode .border-2 {
   border-width: 4px !important;
 }
@@ -69,7 +241,7 @@
   border-width: 2px !important;
 }
 
-/* Force "short" layout in presentation mode regardless of height */
+/* Force "short" layout in presentation mode */
 .presentation-mode .short\:pt-4 {
   padding-top: 1rem !important;
 }
@@ -94,41 +266,140 @@
   gap: 0.5rem !important;
 }
 
-/* Disable blur effects and transparency in presentation mode */
-.presentation-mode .backdrop-blur-sm {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+/* Progress indicators and icons - ensure visibility */
+.presentation-mode .text-brand-blue,
+.presentation-mode .text-brand-yellow,
+.presentation-mode .text-brand-orange {
+  color: #D9F400 !important;
 }
 
-.presentation-mode .blur-3xl {
-  filter: none !important;
-  opacity: 0 !important;
+/* Gradient backgrounds to solid for presentation */
+.presentation-mode .bg-gradient-to-r {
+  background: #D9F400 !important;
 }
 
-.presentation-mode .bg-black\/60 {
-  background-color: rgba(0, 0, 0, 0.9) !important;
+.presentation-mode .from-brand-olive,
+.presentation-mode .to-brand-lime {
+  background: #D9F400 !important;
 }
 
-/* Specific text overrides for Attract Screen in Presentation Mode */
-.presentation-mode .attract-screen h1,
-.presentation-mode .attract-screen h1 span,
-.presentation-mode .attract-screen p,
-.presentation-mode .attract-screen p span {
-  color: #f8f8f5 !important;
-  opacity: 1 !important;
-}
-
-/* Force black text on white backgrounds (Question Card) in Presentation Mode */
-.presentation-mode .bg-white .text-brand-dark,
-.presentation-mode .bg-white .text-brand-dark\/80,
-.presentation-mode .bg-white .text-brand-dark\/60,
-.presentation-mode .bg-white .text-brand-dark\/40,
-.presentation-mode .bg-white p {
+/* Difficulty badges - enhanced contrast */
+.presentation-mode .bg-green-50 {
+  background-color: #D9F400 !important;
   color: #000000 !important;
-  opacity: 1 !important;
 }
 
-/* Global Button Styles */
+.presentation-mode .bg-yellow-50,
+.presentation-mode .bg-orange-50,
+.presentation-mode .bg-red-50,
+.presentation-mode .bg-purple-50 {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode .text-green-700,
+.presentation-mode .text-yellow-700,
+.presentation-mode .text-orange-700,
+.presentation-mode .text-red-700,
+.presentation-mode .text-purple-700 {
+  color: #000000 !important;
+}
+
+/* Background pattern removal */
+.presentation-mode .absolute.inset-0.opacity-10,
+.presentation-mode .absolute.top-0.left-0.w-full.h-full {
+  display: none !important;
+}
+
+/* Additional presentation mode overrides for missed cases */
+.presentation-mode .text-brand-orange,
+.presentation-mode .brand-orange {
+  color: #D9F400 !important;
+}
+
+.presentation-mode .border-brand-orange {
+  border-color: #D9F400 !important;
+}
+
+.presentation-mode .bg-brand-orange {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode .hover\:bg-brand-orange\/90:hover {
+  background-color: #c4e600 !important;
+}
+
+/* Special handling for personality cards and modals */
+.presentation-mode .bg-white\/80 .text-brand-dark,
+.presentation-mode .shadow-xl .text-brand-dark {
+  color: #000000 !important;
+}
+
+/* Timer and progress elements */
+.presentation-mode .bg-brand-lime\/10,
+.presentation-mode .bg-brand-lime\/20 {
+  background-color: rgba(217, 244, 0, 0.2) !important;
+}
+
+.presentation-mode .border-brand-lime\/20,
+.presentation-mode .border-brand-lime {
+  border-color: #D9F400 !important;
+}
+
+/* Hover states for answer options */
+.presentation-mode .hover\:border-brand-lime:hover {
+  border-color: #D9F400 !important;
+}
+
+.presentation-mode .hover\:bg-brand-lime\/5:hover {
+  background-color: rgba(217, 244, 0, 0.1) !important;
+}
+
+.presentation-mode .group-hover\:bg-brand-lime {
+  background-color: #D9F400 !important;
+}
+
+.presentation-mode .group-hover\:text-brand-dark {
+  color: #000000 !important;
+}
+
+/* Selected answer states */
+.presentation-mode .border-brand-dark {
+  border-color: #D9F400 !important;
+}
+
+.presentation-mode .bg-brand-dark\/5 {
+  background-color: rgba(217, 244, 0, 0.1) !important;
+}
+
+.presentation-mode .text-brand-dark\/60,
+.presentation-mode .text-brand-dark\/40 {
+  color: #000000 !important;
+  opacity: 0.8 !important;
+}
+
+/* Error states and validation */
+.presentation-mode .border-red-500,
+.presentation-mode .bg-red-50 {
+  border-color: #D9F400 !important;
+  background-color: rgba(217, 244, 0, 0.1) !important;
+}
+
+.presentation-mode .text-red-500 {
+  color: #D9F400 !important;
+}
+
+/* Focus states */
+.presentation-mode .focus\:border-brand-orange:focus {
+  border-color: #D9F400 !important;
+}
+
+.presentation-mode .focus\:ring-brand-orange\/20:focus {
+  box-shadow: 0 0 0 4px rgba(217, 244, 0, 0.2) !important;
+}
+
+/* Global Button Styles - Updated for dark theme compatibility */
 button.bg-brand-dark,
 button.bg-black,
 button.bg-brand-olive {
@@ -144,5 +415,120 @@ button.bg-black:active,
 button.bg-brand-olive:hover,
 button.bg-brand-olive:active {
   background-color: #d9f400 !important;
+  color: #000000 !important;
+}
+
+/* Presentation mode button overrides take precedence */
+.presentation-mode button.bg-brand-dark,
+.presentation-mode button.bg-black,
+.presentation-mode button.bg-brand-olive {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+.presentation-mode button.bg-brand-dark:hover,
+.presentation-mode button.bg-black:hover,
+.presentation-mode button.bg-brand-olive:hover {
+  background-color: #c4e600 !important;
+  color: #000000 !important;
+}
+
+/* Ensure loading states work in dark mode */
+.presentation-mode .animate-spin {
+  color: #D9F400 !important;
+}
+
+/* Personality Reveal Component Overrides */
+.presentation-mode .border-brand-orange\/10 {
+  border-color: rgba(217, 244, 0, 0.3) !important;
+}
+
+.presentation-mode .from-brand-orange {
+  background: #D9F400 !important;
+}
+
+.presentation-mode .via-brand-pink,
+.presentation-mode .to-brand-purple {
+  background: #D9F400 !important;
+}
+
+.presentation-mode .bg-brand-cream {
+  background-color: #f8f8f5 !important;
+}
+
+.presentation-mode .border-white {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.presentation-mode .bg-brand-orange\/10 {
+  background-color: rgba(217, 244, 0, 0.2) !important;
+}
+
+/* Timer Component Overrides */
+.presentation-mode .text-brand-green {
+  color: #00E676 !important;
+}
+
+.presentation-mode .text-yellow-500 {
+  color: #FFD700 !important;
+}
+
+.presentation-mode .text-brand-red {
+  color: #FF4444 !important;
+}
+
+.presentation-mode .stroke-current {
+  stroke: currentColor !important;
+}
+
+.presentation-mode .text-brand-dark\/10 {
+  color: rgba(248, 248, 245, 0.3) !important;
+}
+
+/* Additional brand color mappings for comprehensive coverage */
+.presentation-mode .text-brand-pink,
+.presentation-mode .text-brand-purple {
+  color: #D9F400 !important;
+}
+
+.presentation-mode .bg-brand-pink,
+.presentation-mode .bg-brand-purple {
+  background-color: #D9F400 !important;
+  color: #000000 !important;
+}
+
+/* Social share and external elements */
+.presentation-mode .hover\:bg-brand-lime:hover {
+  background-color: #D9F400 !important;
+}
+
+.presentation-mode .hover\:text-brand-dark:hover {
+  color: #000000 !important;
+}
+
+/* Stats breakdown and result elements */
+.presentation-mode .text-brand-blue {
+  color: #D9F400 !important;
+}
+
+/* Make sure any missed gradient backgrounds are handled */
+.presentation-mode [class*="bg-gradient"] {
+  background: #D9F400 !important;
+}
+
+/* Override any opacity-based colors in dark mode */
+.presentation-mode [class*="brand-dark/"] {
+  color: #f8f8f5 !important;
+}
+
+/* Ensure consistent accent color usage */
+.presentation-mode [class*="brand-lime"],
+.presentation-mode [class*="brand-orange"] {
+  color: #D9F400 !important;
+}
+
+.presentation-mode [class*="bg-brand-lime"],
+.presentation-mode [class*="bg-brand-orange"] {
+  background-color: #D9F400 !important;
   color: #000000 !important;
 }
