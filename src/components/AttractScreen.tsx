@@ -25,11 +25,7 @@ export function AttractScreen() {
 
     return (
         <div className="relative min-h-screen w-full flex flex-col items-center justify-center p-6 overflow-hidden attract-screen">
-            {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-lime/20 rounded-full blur-[100px]" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-olive/10 rounded-full blur-[100px]" />
-            </div>
+            {/* Clean black background - no gradients */}
 
             <div className="w-full max-w-4xl z-10 flex flex-col items-center gap-8">
                 {/* Header */}
@@ -38,13 +34,10 @@ export function AttractScreen() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center"
                 >
-                    <h1 className="text-4xl md:text-5xl font-black text-brand-lime tracking-tight mb-2 leading-tight">
-                        Play our trivia.<br />
+                    <h1 className="text-4xl md:text-5xl font-black text-brand-lime tracking-tight mb-4 leading-tight">
+                        AI for prod trivia.<br />
                         Win unique prizes & swag!
                     </h1>
-                    <p className="text-lg md:text-xl text-brand-lime font-medium mt-2">
-                        Test your knowledge on AI for prod
-                    </p>
                 </motion.div>
 
                 {/* Rotating Fact Card */}

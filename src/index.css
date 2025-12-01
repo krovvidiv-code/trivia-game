@@ -336,9 +336,18 @@
   color: #f8f8f5 !important;
 }
 
-/* Background pattern removal */
+/* Background pattern and gradient removal */
 .presentation-mode .absolute.inset-0.opacity-10,
-.presentation-mode .absolute.top-0.left-0.w-full.h-full {
+.presentation-mode .absolute.top-0.left-0.w-full.h-full,
+.presentation-mode .bg-brand-lime\/20,
+.presentation-mode .bg-brand-olive\/10 {
+  display: none !important;
+}
+
+/* Ensure attract screen background elements are completely removed */
+.presentation-mode .attract-screen .absolute.inset-0,
+.presentation-mode .attract-screen [class*="bg-brand-lime"],
+.presentation-mode .attract-screen [class*="bg-brand-olive"] {
   display: none !important;
 }
 
