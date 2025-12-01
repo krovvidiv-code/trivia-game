@@ -118,9 +118,20 @@
   opacity: 1 !important;
 }
 
+/* Force black text on white backgrounds (Question Card) in Presentation Mode */
+.presentation-mode .bg-white .text-brand-dark,
+.presentation-mode .bg-white .text-brand-dark\/80,
+.presentation-mode .bg-white .text-brand-dark\/60,
+.presentation-mode .bg-white .text-brand-dark\/40,
+.presentation-mode .bg-white p {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
 /* Global Button Styles */
 button.bg-brand-dark,
-button.bg-black {
+button.bg-black,
+button.bg-brand-olive {
   background-color: #000000 !important;
   color: #ffffff !important;
   transition: all 0.2s ease-in-out;
@@ -129,7 +140,9 @@ button.bg-black {
 button.bg-brand-dark:hover,
 button.bg-brand-dark:active,
 button.bg-black:hover,
-button.bg-black:active {
+button.bg-black:active,
+button.bg-brand-olive:hover,
+button.bg-brand-olive:active {
   background-color: #d9f400 !important;
   color: #000000 !important;
 }

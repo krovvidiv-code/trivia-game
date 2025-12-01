@@ -7,15 +7,12 @@ import { determinePersonality } from '@/utils/personalityLogic';
 import { PersonalityReveal } from './PersonalityReveal';
 import { StatsBreakdown } from './StatsBreakdown';
 import { SocialShare } from './SocialShare';
-import { EmailVerificationModal } from './EmailVerificationModal';
 import { type PersonalityProfile } from '@/types';
 
 export function ResultScreen() {
     const resetGame = useGameStore(state => state.resetGame);
-    const emailValidationStatus = useGameStore(state => state.emailValidationStatus);
     const { questions, answers, totalTime, longestStreak, playerName } = useGameStore();
     const [personality, setPersonality] = useState<PersonalityProfile | null>(null);
-    const [showVerificationModal, setShowVerificationModal] = useState(false);
 
     useEffect(() => {
         // Re-fetch the entire state for determinePersonality as it expects the full state object
@@ -23,27 +20,6 @@ export function ResultScreen() {
         const result = determinePersonality(currentGameState);
         setPersonality(result);
     }, []); // Run once on mount
-
-    // Separate effect to watch email validation status
-    useEffect(() => {
-        // Show modal if email is invalid or still pending after a brief delay
-        if (emailValidationStatus === 'invalid' || emailValidationStatus === 'unknown') {
-            setShowVerificationModal(true);
-        } else if (emailValidationStatus === 'pending') {
-            // Wait a bit for validation to complete, then show modal if still pending
-            const timer = setTimeout(() => {
-                const currentStatus = useGameStore.getState().emailValidationStatus;
-                if (currentStatus === 'invalid' || currentStatus === 'pending' || currentStatus === 'unknown') {
-                    setShowVerificationModal(true);
-                }
-            }, 2000); // Wait 2 seconds for background validation
-            return () => clearTimeout(timer);
-        }
-    }, [emailValidationStatus]);
-
-    const handleEmailVerified = () => {
-        setShowVerificationModal(false);
-    };
 
     if (!personality) return null;
 
@@ -182,11 +158,6 @@ export function ResultScreen() {
                     </a>
                 </motion.div>
             </div>
-
-            {/* Email Verification Modal */}
-            {showVerificationModal && (
-                <EmailVerificationModal isOpen={showVerificationModal} onVerified={handleEmailVerified} />
-            )}
         </motion.div>
     );
 }
