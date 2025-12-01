@@ -60,7 +60,7 @@ export function PersonalityReveal({ personality, playerName }: PersonalityReveal
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-3xl font-serif font-bold text-brand-dark mb-2"
+                className="text-3xl font-serif font-bold text-brand-lime mb-2"
             >
                 {personality.title}
             </motion.h2>
@@ -69,7 +69,7 @@ export function PersonalityReveal({ personality, playerName }: PersonalityReveal
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-brand-orange font-medium text-lg mb-6"
+                className="text-brand-lime font-medium text-lg mb-6"
             >
                 {personality.tagline}
             </motion.p>
@@ -78,7 +78,7 @@ export function PersonalityReveal({ personality, playerName }: PersonalityReveal
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="bg-brand-cream/50 rounded-xl p-6 max-w-2xl mx-auto space-y-4"
+                className="bg-black rounded-xl p-6 max-w-lg mx-auto space-y-4"
             >
                 <p className="text-brand-dark/80 leading-relaxed">
                     {personalizedDescription}

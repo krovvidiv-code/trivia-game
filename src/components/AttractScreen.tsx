@@ -38,11 +38,11 @@ export function AttractScreen() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center"
                 >
-                    <h1 className="text-4xl md:text-5xl font-black text-brand-dark tracking-tight mb-2">
-                        Test your knowledge on <span className="text-brand-olive">AI for prod.</span>
+                    <h1 className="text-4xl md:text-5xl font-black text-brand-lime tracking-tight mb-2">
+                        Play our trivia to win unique prizes & swag!
                     </h1>
                     <p className="text-lg md:text-xl text-brand-dark/70 font-medium mt-2">
-                        Win <span className="font-bold text-brand-olive">unique prizes & exciting swag!</span>
+                        Test your knowledge on AI for prod!
                     </p>
                 </motion.div>
 
@@ -79,7 +79,7 @@ export function AttractScreen() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={enterWelcomeScreen}
-                    className="group relative px-8 py-4 bg-brand-dark text-white rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3 overflow-hidden"
+                    className="group relative px-8 py-4 bg-brand-lime text-black rounded-2xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3 overflow-hidden"
                 >
                     <span className="relative z-10">Start Playing</span>
                     <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />

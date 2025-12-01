@@ -489,13 +489,13 @@ button.bg-brand-olive:active {
   background-color: rgba(248, 248, 245, 0.1) !important;
 }
 
-/* Timer Component - Preserve color coding for usability */
-.presentation-mode .text-brand-green {
-  color: #00E676 !important;
+/* Timer Component - Updated Resolve AI brand colors */
+.presentation-mode .text-brand-olive {
+  color: #657220 !important;
 }
 
-.presentation-mode .text-yellow-500 {
-  color: #FFD700 !important;
+.presentation-mode .text-brand-lime {
+  color: #D9F400 !important;
 }
 
 .presentation-mode .text-brand-red {
@@ -556,4 +556,61 @@ button.bg-brand-olive:active {
 .presentation-mode [class*="bg-brand-orange"] {
   background-color: #000000 !important;
   color: #f8f8f5 !important;
+}
+
+/* GameHUD Component - Header elements visibility */
+.presentation-mode .bg-white\/50,
+.presentation-mode .backdrop-blur-md {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Score and header text - Accent color for visibility */
+.presentation-mode .text-brand-dark\/40 {
+  color: #D9F400 !important;
+  opacity: 1 !important;
+}
+
+.presentation-mode .text-brand-dark\/30 {
+  color: #D9F400 !important;
+  opacity: 0.7 !important;
+}
+
+/* Score number and question progress - Accent color */
+.presentation-mode .font-serif.tabular-nums {
+  color: #D9F400 !important;
+}
+
+/* Trophy and progress icons */
+.presentation-mode .bg-brand-olive\/10 {
+  background-color: rgba(217, 244, 0, 0.2) !important;
+}
+
+.presentation-mode .text-brand-olive {
+  color: #D9F400 !important;
+}
+
+/* Streak indicator colors */
+.presentation-mode .bg-orange-100 {
+  background-color: rgba(217, 244, 0, 0.2) !important;
+}
+
+.presentation-mode .text-orange-600 {
+  color: #f8f8f5 !important;
+}
+
+/* RankIndicator messages - Accent color for visibility */
+.presentation-mode .text-xs,
+.presentation-mode .text-sm {
+  color: #D9F400 !important;
+}
+
+/* Personality reveal - Compact sizing */
+.presentation-mode .max-w-2xl {
+  max-width: 32rem !important; /* Smaller than 48rem */
+}
+
+.presentation-mode .max-w-lg {
+  max-width: 28rem !important; /* Compact message box */
 }

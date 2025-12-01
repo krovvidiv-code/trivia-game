@@ -38,10 +38,10 @@ export function Timer({ duration, onTimeUp, isActive, onTick }: TimerProps) {
 
     const percentage = (timeLeft / duration) * 100;
 
-    // Color logic
-    let color = 'text-brand-green';
-    if (percentage < 50) color = 'text-yellow-500';
-    if (percentage < 25) color = 'text-brand-red';
+    // Color logic - Updated for Resolve AI brand colors
+    let color = 'text-brand-olive'; // Resolve AI green #657220
+    if (percentage < 50) color = 'text-brand-lime'; // #D9F400
+    if (percentage < 25) color = 'text-brand-red'; // Keep existing red
 
     return (
         <div className="relative w-24 h-24 flex items-center justify-center font-bold text-2xl">
