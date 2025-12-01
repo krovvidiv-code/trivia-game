@@ -13,11 +13,11 @@ interface GameHUDProps {
 
 export function GameHUD({ score, streak, currentQuestion, totalQuestions, questionsCorrect }: GameHUDProps) {
     return (
-        <div className="w-full max-w-5xl xl:max-w-7xl 2xl:max-w-[85vw] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 bg-white/50 backdrop-blur-md rounded-2xl p-4 border border-brand-dark/5 shadow-sm transition-all duration-500">
+        <div className="w-full max-w-5xl xl:max-w-7xl 2xl:max-w-[85vw] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 short:gap-2 bg-white/50 backdrop-blur-md rounded-2xl p-4 short:p-2 border border-brand-dark/5 shadow-sm transition-all duration-500">
             {/* Score */}
             <div className="flex items-center gap-3 w-full md:w-auto">
                 <div className="bg-brand-olive/10 p-2 rounded-xl">
-                    <Trophy className="w-6 h-6 text-brand-olive" />
+                    <Trophy className="w-6 h-6 short:w-5 short:h-5 text-brand-olive" />
                 </div>
                 <div>
                     <p className="text-xs font-bold text-brand-dark/40 uppercase tracking-wider">Score</p>
@@ -25,7 +25,7 @@ export function GameHUD({ score, streak, currentQuestion, totalQuestions, questi
                         key={score}
                         initial={{ scale: 1.2, color: '#657220' }}
                         animate={{ scale: 1, color: '#222222' }}
-                        className="text-2xl font-bold font-serif tabular-nums"
+                        className="text-2xl short:text-xl font-bold font-serif tabular-nums"
                     >
                         {score.toLocaleString()}
                     </motion.p>
@@ -57,7 +57,7 @@ export function GameHUD({ score, streak, currentQuestion, totalQuestions, questi
                 {/* Progress */}
                 <div className="text-right">
                     <p className="text-xs font-bold text-brand-dark/40 uppercase tracking-wider">Question</p>
-                    <p className="text-xl font-bold font-serif tabular-nums">
+                    <p className="text-xl short:text-lg font-bold font-serif tabular-nums">
                         {currentQuestion} <span className="text-brand-dark/30 text-base">/ {totalQuestions}</span>
                     </p>
                 </div>

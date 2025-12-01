@@ -139,7 +139,7 @@ export function GameScreen() {
                 questionsCorrect={Object.values(gameState.answers).filter(a => a.correct && !a.isRecovery).length}
             />
 
-            <main className="container mx-auto px-4 md:px-6 pt-24 pb-12 relative z-10 min-h-[calc(100vh-80px)] flex flex-col justify-center">
+            <main className="container mx-auto px-4 md:px-6 pt-24 pb-12 landscape:pt-4 landscape:pb-4 short:pt-4 short:pb-4 relative z-10 min-h-[calc(100vh-80px)] flex flex-col justify-center presentation-mode:pt-4 presentation-mode:pb-4">
                 {/* Recovery Mode Banner */}
                 {recoveryMode && (
                     <div className="max-w-2xl mx-auto mb-8 bg-brand-orange/10 border-2 border-brand-orange rounded-xl p-4 text-center animate-bounce-in shadow-lg backdrop-blur-sm">

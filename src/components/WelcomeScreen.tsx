@@ -1,19 +1,40 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '@/store/gameStore';
 import { Button } from './Button';
+import { z } from 'zod';
+
+// Validation Schema
+const userSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email address")
+});
 
 export function WelcomeScreen() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
     const { startGame, isLoading } = useGameStore();
 
     const handleStart = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (name && email) {
-            await startGame(name, email);
+        // Validate
+        const result = userSchema.safeParse({ name, email });
+
+        if (!result.success) {
+            const formattedErrors: { name?: string; email?: string } = {};
+            result.error.issues.forEach(issue => {
+                if (issue.path[0] === 'name') formattedErrors.name = issue.message;
+                if (issue.path[0] === 'email') formattedErrors.email = issue.message;
+            });
+            setErrors(formattedErrors);
+            return;
         }
+
+        setErrors({});
+        // No await needed for optimistic start, but good practice to keep it
+        startGame(name, email);
     };
 
     return (
@@ -46,12 +67,26 @@ export function WelcomeScreen() {
                             type="text"
                             id="name"
                             value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl border border-brand-dark/10 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all bg-white/50"
+                            onChange={(e) => {
+                                setName(e.target.value);
+                                if (errors.name) setErrors(prev => ({ ...prev, name: undefined }));
+                            }}
+                            className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500 bg-red-50' : 'border-brand-dark/10 bg-white/50'} focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all`}
                             placeholder="Enter your name"
-                            required
                             disabled={isLoading}
                         />
+                        <AnimatePresence>
+                            {errors.name && (
+                                <motion.p
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="text-red-500 text-xs font-medium pl-1"
+                                >
+                                    {errors.name}
+                                </motion.p>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                     <div className="space-y-2">
@@ -62,12 +97,26 @@ export function WelcomeScreen() {
                             type="email"
                             id="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl border border-brand-dark/10 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all bg-white/50"
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                if (errors.email) setErrors(prev => ({ ...prev, email: undefined }));
+                            }}
+                            className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 bg-red-50' : 'border-brand-dark/10 bg-white/50'} focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all`}
                             placeholder="name@company.com"
-                            required
                             disabled={isLoading}
                         />
+                        <AnimatePresence>
+                            {errors.email && (
+                                <motion.p
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="text-red-500 text-xs font-medium pl-1"
+                                >
+                                    {errors.email}
+                                </motion.p>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                     <Button

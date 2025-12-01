@@ -132,13 +132,13 @@ export const PERSONALITIES: Record<string, PersonalityProfile> = {
         shareText: "I'm the Comeback Kid! Never give up. #ResolveAI #TechTrivia"
     },
     KEVIN_MITNICK: {
-        id: "KEVIN_MITNICK",
-        title: "Kevin Mitnick",
-        tagline: "The Social Engineer",
-        description: "You're learning the system, probing for weaknesses, and figuring out how things work. You might not have all the answers yet, but you have the hacker mindset.",
-        quote: "I was addicted to hacking, more for the intellectual challenge, the curiosity, the seduction of adventure.",
-        image: "",
-        shareText: "I got the Kevin Mitnick personality. Hacking the system! #ResolveAI #TechTrivia"
+        id: 'kevin_mitnick',
+        title: "The Social Engineer",
+        tagline: "Hacking the Human Firewall",
+        description: "You know that the weakest link in any security system is the human element. You're charming, persuasive, and maybe a little bit mischievous. You see rules as suggestions and locked doors as invitations.",
+        quote: "I was addicted to hacking, more for the intellectual challenge, the curiosity, the seduction of adventure; and not for stealing, or causing damage or writing computer viruses.",
+        image: new URL('../assets/personalities/kevin_mitnick.png', import.meta.url).href,
+        shareText: "I'm Kevin Mitnick! I can hack anything... mostly people. 🕵️‍♂️💻 #ResolveAITrivia"
     },
     SHERLOCK_HOLMES: {
         id: "SHERLOCK_HOLMES",

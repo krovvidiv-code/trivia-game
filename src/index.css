@@ -27,3 +27,109 @@
     @apply font-serif;
   }
 }
+
+@media (max-height: 600px) {
+  .short\:pt-4 {
+    padding-top: 1rem !important;
+  }
+
+  .short\:pb-4 {
+    padding-bottom: 1rem !important;
+  }
+
+  .short\:min-h-\[60px\] {
+    min-height: 60px !important;
+  }
+
+  .short\:text-xl {
+    font-size: 1.25rem !important;
+  }
+
+  .short\:p-2 {
+    padding: 0.5rem !important;
+  }
+
+  .short\:gap-2 {
+    gap: 0.5rem !important;
+  }
+}
+
+/* Presentation Mode Overrides */
+.presentation-mode {
+  /* Remove noisy background pattern */
+  background-image: none !important;
+  background-color: var(--color-brand-olive) !important;
+}
+
+.presentation-mode .border-2 {
+  border-width: 4px !important;
+}
+
+.presentation-mode .border {
+  border-width: 2px !important;
+}
+
+/* Force "short" layout in presentation mode regardless of height */
+.presentation-mode .short\:pt-4 {
+  padding-top: 1rem !important;
+}
+
+.presentation-mode .short\:pb-4 {
+  padding-bottom: 1rem !important;
+}
+
+.presentation-mode .short\:min-h-\[60px\] {
+  min-height: 60px !important;
+}
+
+.presentation-mode .short\:text-xl {
+  font-size: 1.25rem !important;
+}
+
+.presentation-mode .short\:p-2 {
+  padding: 0.5rem !important;
+}
+
+.presentation-mode .short\:gap-2 {
+  gap: 0.5rem !important;
+}
+
+/* Disable blur effects and transparency in presentation mode */
+.presentation-mode .backdrop-blur-sm {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.presentation-mode .blur-3xl {
+  filter: none !important;
+  opacity: 0 !important;
+}
+
+.presentation-mode .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Specific text overrides for Attract Screen in Presentation Mode */
+.presentation-mode .attract-screen h1,
+.presentation-mode .attract-screen h1 span,
+.presentation-mode .attract-screen p,
+.presentation-mode .attract-screen p span {
+  color: #f8f8f5 !important;
+  opacity: 1 !important;
+}
+
+/* Global Button Styles */
+button.bg-brand-dark,
+button.bg-black {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease-in-out;
+}
+
+button.bg-brand-dark:hover,
+button.bg-brand-dark:active,
+button.bg-black:hover,
+button.bg-black:active {
+  background-color: #d9f400 !important;
+  color: #000000 !important;
+}

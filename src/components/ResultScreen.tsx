@@ -7,12 +7,15 @@ import { determinePersonality } from '@/utils/personalityLogic';
 import { PersonalityReveal } from './PersonalityReveal';
 import { StatsBreakdown } from './StatsBreakdown';
 import { SocialShare } from './SocialShare';
+import { EmailVerificationModal } from './EmailVerificationModal';
 import { type PersonalityProfile } from '@/types';
 
 export function ResultScreen() {
     const resetGame = useGameStore(state => state.resetGame);
+    const emailValidationStatus = useGameStore(state => state.emailValidationStatus);
     const { questions, answers, totalTime, longestStreak, playerName } = useGameStore();
     const [personality, setPersonality] = useState<PersonalityProfile | null>(null);
+    const [showVerificationModal, setShowVerificationModal] = useState(false);
 
     useEffect(() => {
         // Re-fetch the entire state for determinePersonality as it expects the full state object
@@ -20,6 +23,27 @@ export function ResultScreen() {
         const result = determinePersonality(currentGameState);
         setPersonality(result);
     }, []); // Run once on mount
+
+    // Separate effect to watch email validation status
+    useEffect(() => {
+        // Show modal if email is invalid or still pending after a brief delay
+        if (emailValidationStatus === 'invalid' || emailValidationStatus === 'unknown') {
+            setShowVerificationModal(true);
+        } else if (emailValidationStatus === 'pending') {
+            // Wait a bit for validation to complete, then show modal if still pending
+            const timer = setTimeout(() => {
+                const currentStatus = useGameStore.getState().emailValidationStatus;
+                if (currentStatus === 'invalid' || currentStatus === 'pending' || currentStatus === 'unknown') {
+                    setShowVerificationModal(true);
+                }
+            }, 2000); // Wait 2 seconds for background validation
+            return () => clearTimeout(timer);
+        }
+    }, [emailValidationStatus]);
+
+    const handleEmailVerified = () => {
+        setShowVerificationModal(false);
+    };
 
     if (!personality) return null;
 
@@ -122,11 +146,47 @@ export function ResultScreen() {
                         <RotateCcw className="w-5 h-5 mr-2" />
                         Play Again
                     </Button>
-                    <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={() => window.open('https://resolve.ai/demo', '_blank')}>
+                    <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={() => window.open('https://resolve.ai/book-a-demo', '_blank')}>
                         Book a Demo
                     </Button>
                 </motion.div>
+
+                {/* Footer Links */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 3.0 }}
+                    className="flex items-center justify-center gap-6 text-brand-dark/40 pb-8"
+                >
+                    <a
+                        href="https://www.linkedin.com/company/resolveai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-dark transition-colors flex items-center gap-2 text-sm font-medium"
+                    >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a
+                        href="https://x.com/resolveai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-dark transition-colors flex items-center gap-2 text-sm font-medium"
+                    >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        X (Twitter)
+                    </a>
+                </motion.div>
             </div>
+
+            {/* Email Verification Modal */}
+            {showVerificationModal && (
+                <EmailVerificationModal isOpen={showVerificationModal} onVerified={handleEmailVerified} />
+            )}
         </motion.div>
     );
 }

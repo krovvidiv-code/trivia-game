@@ -2,11 +2,17 @@ import { create } from 'zustand';
 import type { GameState } from '@/types';
 import { startNewGame, getRecoveryQuestion } from '@/services/questionService';
 import { getContextualFeedback, type FeedbackContext } from '@/data/feedbackMessages';
+import { createUserIfNotExists, saveGameSession, type GameSession } from '@/lib/firebase';
 
 interface GameStore extends GameState {
     // Attract Mode
     isAttractModeActive: boolean;
     enterWelcomeScreen: () => void;
+
+    // Email Validation
+    emailValidationStatus: 'pending' | 'valid' | 'invalid' | 'unknown';
+    updateEmailValidationStatus: (status: 'pending' | 'valid' | 'invalid' | 'unknown') => void;
+    updateEmail: (newEmail: string) => Promise<void>;
 
     startGame: (name: string, email: string) => Promise<void>;
     submitAnswer: (questionId: string, answerId: string, timeRemaining: number) => Promise<{ correct: boolean; points: number; breakdown: any; recoveryTriggered?: boolean; feedbackTitle: string; feedbackSubtitle?: string }>;
@@ -19,7 +25,7 @@ interface GameStore extends GameState {
     timeoutCount: number;
 }
 
-const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion' | 'resetGame' | 'isLoading' | 'enterWelcomeScreen'> = {
+const initialState: Omit<GameStore, 'startGame' | 'submitAnswer' | 'nextQuestion' | 'resetGame' | 'isLoading' | 'enterWelcomeScreen' | 'emailValidationStatus' | 'updateEmailValidationStatus' | 'updateEmail'> = {
     currentQuestionIndex: 0,
     score: 0,
     streak: 0,
@@ -71,160 +77,170 @@ export const useGameStore = create<GameStore>((set, get) => ({
     consecutiveWrong: 0,
     fastAnswerCount: 0,
     timeoutCount: 0,
+    emailValidationStatus: 'pending',
 
     enterWelcomeScreen: () => set({ isAttractModeActive: false }),
 
-    startGame: async (name, email) => {
-        set({ isLoading: true });
+    updateEmailValidationStatus: (status) => set({ emailValidationStatus: status }),
 
+    updateEmail: async (newEmail) => {
+        // FIRE AND FORGET: Update state immediately to unblock UI
+        set({ playerEmail: newEmail, emailValidationStatus: 'valid' });
+
+        // Background: Validate and Save if valid
         try {
-            // Generate 12 questions using the new service
-            const questions = startNewGame();
+            const { validateEmail } = await import('@/services/emailService');
+            const validation = await validateEmail(newEmail);
 
-            set({
-                ...initialState,
-                isGameActive: true,
-                playerName: name,
-                playerEmail: email,
-                questions: questions,
-                isLoading: false
-            });
+            if (validation.isValid) {
+                const state = get();
+                // Only save if valid, but don't revert status to 'invalid' to avoid re-blocking user
+                await createUserIfNotExists(newEmail, state.playerName);
+            }
         } catch (error) {
-            console.error("Failed to start game:", error);
-            set({ isLoading: false });
+            console.error('Background email update failed:', error);
         }
+    },
+
+    startGame: async (name, email) => {
+        // OPTIMISTIC START: Start game immediately
+        // We don't set isLoading: true because we want instant transition
+
+        // Generate questions immediately
+        const questions = startNewGame();
+
+        set({
+            ...initialState,
+            isGameActive: true,
+            isAttractModeActive: false,
+            playerName: name,
+            playerEmail: email,
+            questions: questions,
+            isLoading: false
+        });
+
+        // BACKGROUND PROCESS: Validate & Save User
+        // We don't await this, so it runs in background
+        (async () => {
+            try {
+                // 1. Validate Email with ZeroBounce
+                const { validateEmail } = await import('@/services/emailService');
+                const validation = await validateEmail(email);
+
+                if (!validation.isValid) {
+                    console.warn(`Invalid email detected (${validation.status}): ${email}`);
+                    set({ emailValidationStatus: 'invalid' });
+                    // Do NOT save to Firebase if email is invalid
+                } else {
+                    set({ emailValidationStatus: 'valid' });
+                    // 2. Create or fetch user from Firebase (only if valid)
+                    await createUserIfNotExists(email, name);
+                }
+
+                // Note: We can't easily filter questions *after* game starts without disrupting flow.
+                // For optimistic UI, we accept that the first game might have repeats if history check is slow.
+                // Future improvement: Prefetch history on email blur?
+            } catch (error) {
+                console.error("Background initialization failed:", error);
+                set({ emailValidationStatus: 'unknown' });
+            }
+        })();
     },
 
     submitAnswer: async (questionId, answerId, timeRemaining) => {
         const state = get();
 
         // Determine which question we are answering
-        let question = state.questions[state.currentQuestionIndex];
-        let isRecovery = false;
+        const isRecovery = state.recoveryMode && state.recoveryQuestion?.id === questionId;
+        const currentQuestion = isRecovery ? state.recoveryQuestion : state.questions[state.currentQuestionIndex];
 
-        if (state.recoveryMode && state.recoveryQuestion) {
-            if (state.recoveryQuestion.id === questionId) {
-                question = state.recoveryQuestion;
-                isRecovery = true;
-            } else {
-                // Fallback if IDs don't match, though shouldn't happen
-                console.warn("Recovery question ID mismatch");
-            }
-        } else if (question.id !== questionId) {
-            throw new Error('Question mismatch');
+        if (!currentQuestion) {
+            throw new Error("Question not found");
         }
 
-        const selectedAnswer = question.answers.find(a => a.id === answerId);
+        const selectedAnswer = currentQuestion.answers.find(a => a.id === answerId);
         const isCorrect = selectedAnswer?.correct ?? false;
-        const timeTaken = question.timer_seconds - timeRemaining;
 
-        // --- SCORING LOGIC ---
-        let pointsEarned = 0;
-        let breakdown = { base: 0, time: 0, streak: 0 };
-
+        // Calculate points
+        let points = 0;
         if (isCorrect) {
-            // Base Points
-            const basePoints = {
-                easy: 300,
-                medium: 500,
-                hard: 1000,
-                expert: 1000,
-                surprise: 2000, // Bonus for surprise
-                recovery: 300
-            }[question.difficulty] || 500;
-
-            // Time Bonus
-            const timeBonus = Math.floor((timeRemaining / question.timer_seconds) * 500);
-
-            // Streak Bonus (only for main questions, or maybe recovery too? Spec implies streak is saved)
-            // If recovery, we keep previous streak, so we use that.
-            const streakBonus = state.streak * 100;
-
-            breakdown = {
-                base: basePoints,
-                time: timeBonus,
-                streak: streakBonus
-            };
-            pointsEarned = basePoints + timeBonus + streakBonus;
+            points = 10;
+            if (timeRemaining > 25) points += 5;
+            if (state.streak >= 2) points += 5;
         }
 
-        // --- STATE UPDATES ---
+        // Update stats
+        const newStreak = isCorrect ? state.streak + 1 : 0;
+        const newLongestStreak = Math.max(state.longestStreak, newStreak);
 
-        // Update Category Stats
-        const newCategoryStats = { ...state.categoryStats };
-        const category = question.category;
-        if (newCategoryStats[category]) {
-            newCategoryStats[category].asked += 1;
-            if (isCorrect) newCategoryStats[category].correct += 1;
-        }
-
-        // Update Speed Stats
-        const newSpeedStats = {
-            totalAnswerTime: state.speedStats.totalAnswerTime + timeTaken,
-            fastestAnswer: Math.min(state.speedStats.fastestAnswer, timeTaken),
-            slowestAnswer: Math.max(state.speedStats.slowestAnswer, timeTaken)
+        // Update category stats
+        const category = currentQuestion.category;
+        const currentCategoryStats = state.categoryStats[category] || { correct: 0, asked: 0 };
+        const newCategoryStats = {
+            ...state.categoryStats,
+            [category]: {
+                correct: currentCategoryStats.correct + (isCorrect ? 1 : 0),
+                asked: currentCategoryStats.asked + 1
+            }
         };
 
-        // Handle Recovery Mode Logic
-        let newStreak = state.streak;
-        let recoveryTriggered = false;
-        let nextRecoveryQuestion = null;
-        let newRecoveryMode = state.recoveryMode;
-        let newRecoveryQuestionsUsed = state.recoveryQuestionsUsed;
+        // Update speed stats
+        const answerTime = 30 - timeRemaining;
+        const newSpeedStats = {
+            totalAnswerTime: state.speedStats.totalAnswerTime + answerTime,
+            fastestAnswer: Math.min(state.speedStats.fastestAnswer, answerTime),
+            slowestAnswer: Math.max(state.speedStats.slowestAnswer, answerTime)
+        };
 
-        if (isRecovery) {
-            // Answering a recovery question
-            newRecoveryQuestionsUsed += 1;
-            newRecoveryMode = false; // Exit recovery mode regardless of outcome
+        // Context tracking
+        const newConsecutiveWrong = isCorrect ? 0 : state.consecutiveWrong + 1;
+        const newFastAnswerCount = answerTime < 5 ? state.fastAnswerCount + 1 : state.fastAnswerCount;
+        const newTimeoutCount = timeRemaining === 0 ? state.timeoutCount + 1 : state.timeoutCount;
 
-            if (isCorrect) {
-                // Streak Saved! Keep previous streak.
-                // Points are added.
-                // Game continues to next question.
-            } else {
-                // Recovery Failed. Reset streak.
-                newStreak = 0;
-            }
+        // Determine Context for Feedback
+        let feedbackContext: FeedbackContext = 'default_correct'; // Default fallback
+        if (timeRemaining === 0) feedbackContext = 'timeout';
+        else if (isCorrect) {
+            if (newStreak >= 4) feedbackContext = 'hot_streak';
+            else if (newStreak >= 2) feedbackContext = 'streak_building';
+            else if (answerTime < 3) feedbackContext = 'fast_correct';
+            else feedbackContext = 'default_correct';
         } else {
-            // Answering a main question
-            if (isCorrect) {
-                newStreak += 1;
-                // Check for special counters
-                if (question.difficulty === 'surprise') {
-                    set(s => ({ surpriseCorrect: s.surpriseCorrect + 1 }));
-                }
-                if (question.category === 'resolve_ai') {
-                    set(s => ({ resolveAIQuestionsCorrect: s.resolveAIQuestionsCorrect + 1 }));
-                }
-            } else {
-                // Wrong answer on main question
-                // Trigger Recovery Mode?
-                // Only if we haven't used too many? Or always? Spec says "Recovery wrong: No additional penalty".
-                // Spec implies recovery is available.
-                // Let's say we always offer recovery if not already in recovery.
-
-                recoveryTriggered = true;
-                newRecoveryMode = true;
-
-                // Get a recovery question
-                // Try to get one linked to the question, or random
-                if (question.recovery_question_id) {
-                    // In a real app we might look it up, but here we just get a random one 
-                    // or we could implement lookup if we had a map.
-                    // For now, just get a random one, maybe excluding previous?
-                    nextRecoveryQuestion = getRecoveryQuestion();
-                } else {
-                    nextRecoveryQuestion = getRecoveryQuestion();
-                }
-
-                // Don't reset streak yet. Wait for recovery result.
-            }
+            if (newConsecutiveWrong >= 2) feedbackContext = 'multiple_wrong';
+            else if (state.streak > 0) feedbackContext = 'streak_broken';
+            else feedbackContext = 'default_wrong';
         }
 
-        set(state => ({
-            score: state.score + pointsEarned,
+        const { title: feedbackTitle, subtitle: feedbackSubtitle } = getContextualFeedback(feedbackContext);
+
+        // Recovery Mode Logic
+        let recoveryTriggered = false;
+        let nextRecoveryQuestion = null;
+        let nextRecoveryMode = state.recoveryMode;
+        let nextRecoveryQuestionsUsed = state.recoveryQuestionsUsed;
+
+        if (!isCorrect && !state.recoveryMode && state.recoveryQuestionsUsed < 2) {
+            // 20% chance to trigger recovery on wrong answer
+            if (Math.random() < 0.2) {
+                nextRecoveryQuestion = getRecoveryQuestion();
+                if (nextRecoveryQuestion) {
+                    recoveryTriggered = true;
+                    nextRecoveryMode = true;
+                    nextRecoveryQuestionsUsed += 1;
+                }
+            }
+        } else if (state.recoveryMode) {
+            // Exit recovery mode after answering
+            nextRecoveryMode = false;
+        }
+
+        // Update State
+        set({
+            score: state.score + points,
             streak: newStreak,
-            longestStreak: Math.max(state.longestStreak, newStreak),
+            longestStreak: newLongestStreak,
+            categoryStats: newCategoryStats,
+            speedStats: newSpeedStats,
             answers: {
                 ...state.answers,
                 [questionId]: {
@@ -232,88 +248,59 @@ export const useGameStore = create<GameStore>((set, get) => ({
                     correct: isCorrect,
                     timeRemaining,
                     questionId,
-                    isRecovery
+                    isRecovery: !!isRecovery
                 }
             },
-            totalTime: state.totalTime + timeTaken,
-            categoryStats: newCategoryStats,
-            speedStats: newSpeedStats,
-            recoveryMode: newRecoveryMode,
+            recoveryMode: nextRecoveryMode,
             recoveryQuestion: nextRecoveryQuestion,
-            recoveryQuestionsUsed: newRecoveryQuestionsUsed,
-            // Update context tracking
-            consecutiveWrong: isCorrect ? 0 : state.consecutiveWrong + 1,
-            fastAnswerCount: (isCorrect && timeTaken < question.timer_seconds * 0.3) ? state.fastAnswerCount + 1 : state.fastAnswerCount,
-            timeoutCount: timeRemaining === 0 ? state.timeoutCount + 1 : state.timeoutCount,
-        }));
+            recoveryQuestionsUsed: nextRecoveryQuestionsUsed,
+            consecutiveWrong: newConsecutiveWrong,
+            fastAnswerCount: newFastAnswerCount,
+            timeoutCount: newTimeoutCount
+        });
 
-        // Determine feedback context
-        let feedbackContext: FeedbackContext;
+        // Check for Game Over
+        if (state.currentQuestionIndex >= state.questions.length - 1 && !nextRecoveryMode) {
+            set({ isGameOver: true });
 
-        if (timeRemaining === 0) {
-            // Timeout
-            feedbackContext = 'timeout';
-        } else if (isCorrect) {
-            // Correct answer - determine which positive context
-            const isFast = timeTaken < question.timer_seconds * 0.3;
-            const totalCorrect = Object.values(state.answers).filter(a => a.correct).length + 1;
-
-            if (totalCorrect === 1) {
-                feedbackContext = 'first_correct';
-            } else if (newStreak >= 4) {
-                feedbackContext = 'hot_streak';
-            } else if (isFast) {
-                feedbackContext = 'fast_correct';
-            } else if (newStreak >= 2) {
-                feedbackContext = 'streak_building';
-            } else {
-                feedbackContext = 'default_correct';
-            }
-        } else {
-            // Wrong answer - determine which negative context
-            const newConsecutiveWrong = state.consecutiveWrong + 1;
-            const wasTricky = question.difficulty === 'hard' || question.difficulty === 'expert';
-            const hadStreak = state.streak > 0;
-
-            if (hadStreak) {
-                feedbackContext = 'streak_broken';
-            } else if (wasTricky) {
-                feedbackContext = 'tricky_wrong';
-            } else if (newConsecutiveWrong >= 2) {
-                feedbackContext = 'multiple_wrong';
-            } else {
-                feedbackContext = 'default_wrong';
-            }
+            // Save Game Session to Firebase
+            const finalState = get();
+            const session: GameSession = {
+                userEmail: state.playerEmail,
+                score: finalState.score,
+                personality: "Calculated in UI", // Placeholder
+                completedAt: null,
+                answers: finalState.answers
+            };
+            saveGameSession(session);
         }
-
-        const feedbackMessage = getContextualFeedback(feedbackContext);
 
         return {
             correct: isCorrect,
-            points: pointsEarned,
-            breakdown,
+            points,
+            breakdown: {
+                base: isCorrect ? 10 : 0,
+                speed: (isCorrect && timeRemaining > 25) ? 5 : 0,
+                streak: (isCorrect && state.streak >= 2) ? 5 : 0
+            },
             recoveryTriggered,
-            feedbackTitle: feedbackMessage.title,
-            feedbackSubtitle: feedbackMessage.subtitle
+            feedbackTitle,
+            feedbackSubtitle
         };
     },
 
     nextQuestion: async () => {
         const state = get();
-
-        // If we were in recovery mode, we are now moving to the next MAIN question
-        // (Recovery mode is cleared in submitAnswer)
-
         const nextIndex = state.currentQuestionIndex + 1;
 
         if (nextIndex >= state.questions.length) {
-            set({ isGameOver: true, isGameActive: false });
+            set({ isGameOver: true });
             return;
         }
 
         set({
             currentQuestionIndex: nextIndex,
-            recoveryMode: false, // Ensure we are out of recovery
+            recoveryMode: false,
             recoveryQuestion: null
         });
     },
@@ -321,7 +308,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
     resetGame: () => {
         set({
             ...initialState,
-            isLoading: false
+            isLoading: false,
+            // Preserve attract mode state if needed, but usually reset goes to Attract or Welcome?
+            // If we want to go back to Attract Mode:
+            isAttractModeActive: true
         });
-    },
+    }
 }));

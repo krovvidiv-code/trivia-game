@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '@/store/gameStore';
 import { INTERESTING_FACTS } from '@/data/facts';
-import { Sparkles, ArrowRight, Brain, Cpu, Globe, Terminal } from 'lucide-react';
+import { ArrowRight, Brain, Cpu, Globe, Terminal } from 'lucide-react';
 
 export function AttractScreen() {
     const enterWelcomeScreen = useGameStore(state => state.enterWelcomeScreen);
@@ -24,7 +24,7 @@ export function AttractScreen() {
     const CurrentIcon = Icons[currentFactIndex % Icons.length];
 
     return (
-        <div className="min-h-screen bg-brand-light flex flex-col items-center justify-center p-4 relative overflow-hidden">
+        <div className="relative min-h-screen w-full flex flex-col items-center justify-center p-6 overflow-hidden attract-screen">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-lime/20 rounded-full blur-[100px]" />
@@ -38,13 +38,12 @@ export function AttractScreen() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center"
                 >
-                    <div className="inline-flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-1.5 rounded-full border border-brand-dark/5 mb-4">
-                        <Sparkles className="w-4 h-4 text-brand-olive" />
-                        <span className="text-sm font-bold text-brand-dark/60 uppercase tracking-wider">Did you know?</span>
-                    </div>
                     <h1 className="text-4xl md:text-5xl font-black text-brand-dark tracking-tight mb-2">
-                        Which AI Legend <span className="text-brand-olive">Are You?</span>
+                        Test your knowledge on <span className="text-brand-olive">AI for prod.</span>
                     </h1>
+                    <p className="text-lg md:text-xl text-brand-dark/70 font-medium mt-2">
+                        Win <span className="font-bold text-brand-olive">unique prizes & exciting swag!</span>
+                    </p>
                 </motion.div>
 
                 {/* Rotating Fact Card */}
@@ -90,7 +89,7 @@ export function AttractScreen() {
                 </motion.button>
 
                 <p className="text-brand-dark/40 text-sm font-medium">
-                    Discover your AI Personality
+                    Answer trivia questions to discover which AI legend you are
                 </p>
             </div>
         </div>
